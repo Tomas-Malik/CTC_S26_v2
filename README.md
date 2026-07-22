@@ -9,22 +9,27 @@ dropdowns, no filters — just the four modules.
 ## Files
 
 - `index.html` — landing page with the 4 module cards
-- `module-1.html` … `module-4.html` — one placeholder page per module
+- `module-1.html` — Module 1 overview (Knowledge Organization) + materials, filled in
+- `module-2.html` … `module-4.html` — placeholder pages, not yet filled in
+- `materials/module-1/` — the actual files for Module 1 (currently: the slide deck)
 - `style.css` — shared styling for every page (colors, fonts, layout)
 
 ## Adding materials to a module
 
-Open the relevant `module-N.html` file and replace this block:
+`module-1.html` is now a working example of the pattern: an overview block
+(TL;DR, prerequisites, what's needed, who it's for, outcomes) followed by a
+**Materials** section linking to files in `materials/module-N/`.
 
-```html
-<div class="placeholder-note">
-  Materials for this module haven't been added yet...
-</div>
-```
+To fill in Module 2, 3, or 4:
 
-with whatever you want that module to hold — a list of links, an embedded
-Google Slides iframe, a PDF, a video, etc. The header, back link, and footer
-around it don't need to change.
+1. Drop the files for that module into a new `materials/module-N/` folder.
+2. Open `module-N.html` and replace the `placeholder-note` block with the
+   same structure `module-1.html` uses — copy its overview + materials
+   markup and swap in that module's content.
+3. Link to the new files with a relative path, e.g.
+   `materials/module-2/whatever-the-file-is.pptx`.
+
+The header, back link, and footer around it don't need to change.
 
 ## Publish it on GitHub Pages
 
@@ -51,6 +56,8 @@ Every color and font is a CSS variable at the top of `style.css`:
 :root {
   --magenta: #a5228e;       /* CTC's brand color, pulled from ctc.uic.edu */
   --magenta-dark: #7c1c6b;  /* hover/active state */
+  --navy: #001e62;          /* UIC Navy Pier Blue, paired with the magenta */
+  --navy-tint: #e9edf6;     /* light navy background, used on module pages */
   --ink: #201a1e;           /* body text */
   --ink-muted: #6b6270;     /* secondary text */
   --paper: #fbf8fa;         /* page background */
