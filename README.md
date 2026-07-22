@@ -4,6 +4,8 @@ A simple static site: a landing page with four module cards, plus one page per
 module. Styled to match the Chicago Tech Circle color scheme. No login, no
 dropdowns, no filters — just the four modules.
 
+**Live site:** https://Tomas-Malik.github.io/CTC_S26_v2/
+
 ## Files
 
 - `index.html` — landing page with the 4 module cards
@@ -33,13 +35,13 @@ around it don't need to change.
    git add .
    git commit -m "Initial curriculum resources site"
    git branch -M main
-   git remote add origin https://github.com/<your-username>/<repo-name>.git
+   git remote add origin https://github.com/Tomas-Malik/CTC_S26_v2.git
    git push -u origin main
    ```
 3. On GitHub, go to **Settings → Pages**.
 4. Under **Build and deployment**, set **Source** to `Deploy from a branch`,
    branch `main`, folder `/ (root)`, then **Save**.
-5. Give it a minute, then visit `https://<your-username>.github.io/<repo-name>/`.
+5. Give it a minute, then visit `https://Tomas-Malik.github.io/CTC_S26_v2/`.
 
 ## Customizing
 
