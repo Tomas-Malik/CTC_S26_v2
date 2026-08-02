@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>#team-updates — Slack</title>
+<style>
+  :root{
+    --purple:#3F0F40;
+    --purple-dark:#350d36;
+    --sidebar:#3F0F40;
+    --channel-bg:#1a1d21;
+    --text:#1d1c1d;
+    --muted:#616061;
+    --border:#dddedf;
+    --hover:#f8f8f8;
+    --link:#1264a3;
+    --green:#2bac76;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:#e8e8e8;
+    padding:24px;
+  }
+  .app{
+    max-width:900px;
+    margin:0 auto;
+    display:flex;
+    height:640px;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 4px 24px rgba(0,0,0,0.25);
+  }
+  .rail{
+    width:64px;
+    background:var(--purple-dark);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:14px;
+    gap:14px;
+  }
+  .rail-logo{
+    width:36px;height:36px;border-radius:10px;background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:var(--purple-dark);font-size:16px;
+  }
+  .sidebar{
+    width:220px;
+    background:var(--purple);
+    color:#fff;
+    padding:14px 0 0 0;
+    display:flex;
+    flex-direction:column;
+  }
+  .workspace-name{
+    padding:0 16px 14px 16px;
+    font-weight:800;
+    font-size:17px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .nav-section{
+    padding:14px 12px 4px 16px;
+    font-size:13px;
+    color:rgba(255,255,255,0.65);
+    font-weight:600;
+  }
+  .channel-item{
+    padding:5px 16px;
+    font-size:14.5px;
+    color:rgba(255,255,255,0.78);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .channel-item.active{
+    background:#1164A3;
+    color:#fff;
+    font-weight:700;
+    margin:0 8px;
+    border-radius:6px;
+    padding-left:8px;
+  }
+  .channel-item .dot{
+    width:8px;height:8px;border-radius:50%;background:#2bac76;
+    display:inline-block;
+  }
+  .main{
+    flex:1;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .channel-header{
+    padding:12px 20px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .channel-header .hash{
+    font-size:18px;font-weight:800;color:var(--text);
+  }
+  .channel-header .meta{
+    font-size:12.5px;color:var(--muted);margin-left:8px;
+    border-left:1px solid var(--border);padding-left:10px;
+  }
+  .messages{
+    flex:1;
+    overflow-y:auto;
+    padding:10px 20px 16px 20px;
+  }
+  .day-divider{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:14px 0 10px 0;
+    color:var(--muted);
+    font-size:12.5px;
+    font-weight:700;
+  }
+  .day-divider::before,.day-divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--border);
+  }
+  .msg{
+    display:flex;
+    gap:10px;
+    padding:6px 8px;
+    border-radius:6px;
+  }
+  .msg:hover{background:var(--hover);}
+  .avatar{
+    width:36px;height:36px;border-radius:6px;
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;font-size:14px;
+    margin-top:2px;
+  }
+  .avatar.marcus{background:#e07b39;}
+  .avatar.priya{background:#6a4fb6;}
+  .avatar.liz{background:#1c8a6b;}
+  .msg-body{min-width:0;flex:1;}
+  .msg-head{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .msg-name{font-weight:800;font-size:14.5px;color:var(--text);}
+  .msg-time{font-size:12px;color:var(--muted);}
+  .msg-text{
+    font-size:14.5px;
+    line-height:1.45;
+    color:var(--text);
+    margin-top:2px;
+    white-space:pre-wrap;
+  }
+  .flag{
+    display:inline-block;
+    margin-top:6px;
+    padding:2px 8px;
+    border-radius:4px;
+    font-size:11.5px;
+    font-weight:700;
+  }
+  .flag.correction{background:#fff3cd;color:#7a5b00;border:1px solid #ffe08a;}
+  .flag.urgent{background:#fde3e3;color:#a3241c;border:1px solid #f5b8b3;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="rail"><div class="rail-logo">RCP</div></div>
+  <div class="sidebar">
+    <div class="workspace-name">Riverside Community Partners <span>▾</span></div>
+    <div class="nav-section">Channels</div>
+    <div class="channel-item"># general</div>
+    <div class="channel-item active"><span class="dot"></span> team-updates</div>
+    <div class="channel-item"># announcements</div>
+    <div class="channel-item"># random</div>
+    <div class="nav-section">Direct messages</div>
+    <div class="channel-item">Dana (Manager)</div>
+    <div class="channel-item">Marcus</div>
+    <div class="channel-item">Priya</div>
+    <div class="channel-item">Liz</div>
+  </div>
+  <div class="main">
+    <div class="channel-header">
+      <span class="hash"># team-updates</span>
+      <span class="meta">4 members</span>
+    </div>
+    <div class="messages">
+
+      <div class="day-divider">TUESDAY</div>
+
+      <div class="msg">
+        <div class="avatar marcus">M</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Marcus</span><span class="msg-time">9:14 AM</span></div>
+          <div class="msg-text">hey all — quick heads up, the Tuesday/Thursday cohort for the digital skills class is now at 22 ppl, up from 14 last month. word of mouth from the spring cohort is doing a lot of the work tbh. also reminder the printer on 3rd floor is STILL broken lol</div>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar priya">P</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Priya</span><span class="msg-time">11:02 AM</span></div>
+          <div class="msg-text">re: job placement numbers — I think we're tracking ok? need to double check with workforce solutions before I say anything definitive</div>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar marcus">M</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Marcus</span><span class="msg-time">2:47 PM</span></div>
+          <div class="msg-text">oh also — we lost Denise (volunteer instructor, Wed evening class) to a full time job offer, which is great for her obviously but means we have a gap starting next week. already reached out to two people on the substitute list</div>
+          <span class="flag urgent">buried urgent item</span>
+        </div>
+      </div>
+
+      <div class="day-divider">WEDNESDAY</div>
+
+      <div class="msg">
+        <div class="avatar liz">L</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Liz</span><span class="msg-time">8:30 AM</span></div>
+          <div class="msg-text">financial literacy workshop series wrapped last Thursday. 31 completed out of 38 enrolled, which is actually our best completion rate ever for that program. survey results pending, should have them by Friday</div>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar marcus">M</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Marcus</span><span class="msg-time">10:15 AM</span></div>
+          <div class="msg-text">update on Denise situation — no luck with subs yet, going to ask the board if anyone knows people, this is becoming a real problem not just a minor gap</div>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar priya">P</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Priya</span><span class="msg-time">4:50 PM</span></div>
+          <div class="msg-text">ok talked to workforce solutions. 19 placements this month against a goal of 15, so we're over target. BUT 4 of those are at the same employer (Hendricks Manufacturing) which i'm a little nervous about putting all our eggs in one basket like that. also worth noting placement #19 doesn't really count the same way, person was already employed part time and just picked up more hours, not sure if that should be in the count or not</div>
+          <span class="flag correction">later corrected</span>
+        </div>
+      </div>
+
+      <div class="day-divider">THURSDAY</div>
+
+      <div class="msg">
+        <div class="avatar liz">L</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Liz</span><span class="msg-time">9:00 AM</span></div>
+          <div class="msg-text">random but did anyone see the email from facilities about the parking lot resurfacing next month? might affect evening class attendance, just flagging</div>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar marcus">M</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Marcus</span><span class="msg-time">1:20 PM</span></div>
+          <div class="msg-text">ok update: still no instructor for Wed evening class. board member knows someone who "might be interested" but hasn't called yet. if nothing happens by next Wed we might have to cancel that week's class, which we've literally never done before</div>
+        </div>
+      </div>
+
+      <div class="day-divider">FRIDAY</div>
+
+      <div class="msg">
+        <div class="avatar priya">P</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Priya</span><span class="msg-time">11:45 AM</span></div>
+          <div class="msg-text">correcting myself from earlier — it's actually 18 placements not 19, I miscounted, the part-time person doesn't count per our normal definition so scratch that one. still above the goal of 15 though</div>
+          <span class="flag correction">correction: 19 → 18</span>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar liz">L</div>
+        <div class="msg-body">
+          <div class="msg-head"><span class="msg-name">Liz</span><span class="msg-time">3:30 PM</span></div>
+          <div class="msg-text">survey results are in for fin lit workshop — 94% said they'd recommend to a friend, which is great, but only 60% said they felt "very confident" managing a budget afterward, which is lower than I'd hoped given how much time we spent on that module. might be worth revisiting that section next time we run it</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

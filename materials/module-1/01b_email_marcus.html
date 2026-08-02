@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Email — digital skills + the Denise thing</title>
+<style>
+  :root{
+    --border:#e0e0e0;
+    --muted:#5f6368;
+    --text:#202124;
+    --blue:#1a73e8;
+    --hover:#f1f3f4;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#e8e8e8;
+    padding:24px;
+  }
+  .app{
+    max-width:900px;
+    margin:0 auto;
+    display:flex;
+    height:600px;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 4px 24px rgba(0,0,0,0.25);
+    background:#fff;
+  }
+  .sidebar{
+    width:200px;
+    background:#f6f8fc;
+    border-right:1px solid var(--border);
+    padding:16px 0;
+  }
+  .compose{
+    margin:0 16px 18px 16px;
+    background:#c2e7ff;
+    color:#001d35;
+    font-weight:700;
+    font-size:14px;
+    padding:12px 20px;
+    border-radius:16px;
+    display:inline-block;
+  }
+  .folder{
+    padding:8px 20px 8px 24px;
+    font-size:13.5px;
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .folder.active{
+    background:#d3e3fd;
+    color:#001d35;
+    font-weight:700;
+    border-radius:0 16px 16px 0;
+  }
+  .folder .count{margin-left:auto;font-weight:700;}
+  .main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .toolbar{
+    padding:10px 20px;
+    border-bottom:1px solid var(--border);
+    font-size:13px;
+    color:var(--muted);
+  }
+  .thread{
+    padding:20px 28px;
+    overflow-y:auto;
+    flex:1;
+  }
+  .subject{
+    font-size:22px;
+    font-weight:400;
+    color:var(--text);
+    margin:0 0 16px 0;
+  }
+  .email-card{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px 20px 20px 20px;
+  }
+  .email-meta{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .avatar{
+    width:40px;height:40px;border-radius:50%;
+    background:#e07b39;
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .meta-text{flex:1;min-width:0;}
+  .from-line{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+  }
+  .from-name{font-weight:700;font-size:14.5px;color:var(--text);}
+  .from-name .addr{font-weight:400;color:var(--muted);font-size:13px;margin-left:4px;}
+  .date{font-size:12.5px;color:var(--muted);white-space:nowrap;}
+  .to-line{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .body{
+    margin-top:16px;
+    font-size:14.5px;
+    line-height:1.65;
+    color:var(--text);
+    white-space:pre-wrap;
+  }
+  .body ul{margin:8px 0;padding-left:22px;}
+  .body li{margin-bottom:4px;}
+  .sig{margin-top:18px;color:var(--text);}
+  .label-row{margin-top:14px;display:flex;gap:8px;}
+  .label{
+    font-size:11.5px;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:12px;
+  }
+  .label.urgent{background:#fde3e3;color:#a3241c;}
+  .label.decision{background:#fff3cd;color:#7a5b00;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="sidebar">
+    <div style="padding:0 16px;"><div class="compose">✎ Compose</div></div>
+    <div class="folder active">📥 Inbox <span class="count">12</span></div>
+    <div class="folder">⭐ Starred</div>
+    <div class="folder">📤 Sent</div>
+    <div class="folder">📝 Drafts</div>
+  </div>
+  <div class="main">
+    <div class="toolbar">Inbox &nbsp;›&nbsp; digital skills + the Denise thing</div>
+    <div class="thread">
+      <h1 class="subject">digital skills + the Denise thing</h1>
+      <div class="email-card">
+        <div class="email-meta">
+          <div class="avatar">M</div>
+          <div class="meta-text">
+            <div class="from-line">
+              <div class="from-name">Marcus Owens <span class="addr">&lt;marcus.owens@riversidecp.org&gt;</span></div>
+              <div class="date">Wed, 10:41 AM</div>
+            </div>
+            <div class="to-line">to me</div>
+          </div>
+        </div>
+        <div class="body">Hey —
+
+Wanted to put this in an email instead of just Slack since it's a bit much.
+
+Digital skills class is honestly going great. 22 enrolled now (Tue/Thu cohort), and I think we could be at capacity (25) by the time the next intake happens in two weeks if this keeps up. Might be worth talking about whether we open a second cohort, that's a bigger conversation though, not asking you to decide that today.
+
+The Denise situation is more urgent. To recap from Slack: she left for a full-time job (good for her, bad timing for us). Wednesday evening class has no instructor lined up. I've reached out to:</div>
+        <ul style="margin:0 0 0 48px; font-size:14.5px; line-height:1.65; color:var(--text);">
+          <li>Two people on our old substitute list (no response yet, it's been 4 days)</li>
+          <li>Asked a board member if they know anyone — they mentioned someone but no contact yet</li>
+        </ul>
+        <div class="body">If we don't have someone by Tuesday, I think we need to either (a) cancel next Wednesday's class and notify the 11 students enrolled, or (b) see if I can cover it myself even though digital skills isn't really my area, or (c) something else I haven't thought of. Wanted to flag this clearly since I don't think this can wait for the next regular check-in.</div>
+        <div class="sig">— Marcus</div>
+        <div class="label-row">
+          <span class="label urgent">needs a decision</span>
+          <span class="label decision">time-sensitive: by Tuesday</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
