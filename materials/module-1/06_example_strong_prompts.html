@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strong Example Prompts · Module 1 · Chicago Tech Circle</title>
+<meta name="description" content="A well-formed prompt for each pass, annotated against the diagnostic guides, for facilitator calibration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="facilitator.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="../../index.html">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="wordmark">Chicago Tech Circle</span>
+  </a>
+</header>
+
+<main>
+  <a class="back-link" href="../../module-1.html">&larr; Back to Module 1</a>
+
+  <p class="eyebrow">Facilitator Reference &middot; Module 1</p>
+  <h1 class="page-title">Strong Example Prompts</h1>
+  <p class="page-subtitle">Ties to slide 11 (Pass One activity), slide 14 (Pass Two activity), and the skeletons on slide 23.</p>
+
+  <div class="facilitator-flag">
+    <span class="flag-icon" aria-hidden="true">!</span>
+    <p>Use these as your own calibration, to answer &ldquo;what does a good version of this actually look like?&rdquo;, or to read aloud/project <strong>after</strong> learners have tried their own first &mdash; not as a starting script to hand out before they&rsquo;ve attempted it themselves.</p>
+  </div>
+
+  <div class="doc-section">
+    <p class="doc-section-label">Pass One</p>
+    <h2>Example-anchored prompting</h2>
+    <p class="doc-goal"><strong>Context:</strong> learner has last month&rsquo;s report (<code>02_predecessor_template.md</code>) and this month&rsquo;s raw inputs (<code>01_messy_inputs.md</code> / the three companion docs).</p>
+
+    <h3>A strong first prompt</h3>
+    <div class="prompt-block">
+      <p class="prompt-label">Prompt</p>
+      <p>I&rsquo;m writing this month&rsquo;s version of a monthly program update for my manager Dana. I&rsquo;m giving you last month&rsquo;s report as a structural example, and this month&rsquo;s raw inputs below it.</p>
+      <p>Match last month&rsquo;s structure and professional tone, but:</p>
+      <ul>
+        <li>If any message corrects or updates something said earlier in the week (for example, a number gets revised in a later message), use the most recent version &mdash; not the first one you come across.</li>
+        <li>Don&rsquo;t assume this month&rsquo;s report needs the same sections filled the same way last month&rsquo;s did. If something is genuinely unresolved and needs Dana&rsquo;s input, put it under &ldquo;Needs a Decision,&rdquo; even if that section was empty last month.</li>
+        <li>If anything sounds unconfirmed, secondhand, or like a rumor, flag it explicitly as such rather than stating it as settled fact.</li>
+        <li>Keep the professional tone, but don&rsquo;t apply &ldquo;calm&rdquo; uniformly &mdash; if something this month is genuinely urgent or unresolved, let the report reflect that.</li>
+        <li>Leave out anything that isn&rsquo;t relevant to Dana or a board audience (internal logistics, etc.).</li>
+      </ul>
+      <p>Last month&rsquo;s report: <code>[paste 02_predecessor_template.md]</code></p>
+      <p>This month&rsquo;s raw inputs: <code>[paste the Slack scrollback, Marcus&rsquo;s email, and Priya&rsquo;s notes]</code></p>
+    </div>
+
+    <h3>Why this prompt works</h3>
+    <p>Every line maps to one of the five landmines in <code>03_pass_one_diagnostic.md</code>: correcting earlier facts (the 19&rarr;18 trap), not assuming empty sections stay empty (the &ldquo;Needs a Decision&rdquo; trap), flagging unconfirmed information (the Hendricks rumor), preserving real urgency instead of flattening tone (the Denise item), and an explicit filter instruction (printer/parking lot &mdash; usually the easy one anyway).</p>
+    <p class="doc-note">Worth naming out loud to learners: this prompt is <em>longer</em> than their first instinct, and that&rsquo;s the point. A one-line prompt asks AI to guess your judgment calls. This one makes the judgment calls explicit instead of hoping AI infers them.</p>
+  </div>
+
+  <div class="doc-section">
+    <p class="doc-section-label">Pass Two</p>
+    <h2>Structure-first prompting</h2>
+    <p class="doc-goal"><strong>Context:</strong> learner has the same raw inputs, but no template &mdash; first the structuring conversation, then generation.</p>
+
+    <h3>A strong opening prompt (structure conversation)</h3>
+    <div class="prompt-block">
+      <p class="prompt-label">Prompt</p>
+      <p>I&rsquo;m a team lead at a nonprofit, and I need to send my manager Dana a monthly program update by end of day &mdash; but I don&rsquo;t have a template to work from this time. Before we write anything, I want to figure out the right structure together.</p>
+      <p>Here&rsquo;s who&rsquo;s reading this and why: Dana scans these updates to see what needs her decision versus what&rsquo;s routine good news, ahead of a board packet going out tomorrow.</p>
+      <p>Given that, what sections would make sense for a report like this? I want structure that separates what needs action from what&rsquo;s just informational, and leaves room for things that are genuinely unresolved &mdash; not categories that assume everything wraps up neatly.</p>
+      <p>Don&rsquo;t generate the report yet. Once we agree on a structure, I&rsquo;ll share this month&rsquo;s raw inputs so we can check whether the structure actually holds up against the real data before you write anything.</p>
+    </div>
+
+    <h3>A strong follow-up prompt (after the structure is agreed, before generating)</h3>
+    <div class="prompt-block">
+      <p class="prompt-label">Prompt</p>
+      <p>Here&rsquo;s the real input &mdash; Slack scrollback, an email, and a colleague&rsquo;s call notes, all from this week. Before generating the report: does the structure we landed on actually fit this data, or does anything here not have an obvious home in it? If something doesn&rsquo;t fit, tell me rather than forcing it into the closest category.</p>
+      <p><code>[paste the raw inputs]</code></p>
+    </div>
+
+    <h3>Why this works</h3>
+    <p>This maps to the three checks in <code>04_pass_two_diagnostic.md</code>: giving AI context about the reader before asking for structure, deliberately building in room for unresolved things rather than only positive-framing categories, and &mdash; critically &mdash; checking the structure against the real data <em>before</em> generating, rather than designing in the abstract and forcing the inputs to fit afterward.</p>
+    <p class="doc-note">The two-step shape (agree on structure, <em>then</em> share data, <em>then</em> generate) is itself the lesson. A learner who pastes everything in at once and asks for &ldquo;a report&rdquo; has skipped the structuring conversation entirely, even if they used thoughtful language.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>How this maps to the slide 23 skeletons</h2>
+    <p>Slide 23 gives learners two portable skeletons to take with them. These prompts above are those skeletons filled in for the Riverside scenario &mdash; useful if a learner wants to see the abstract skeleton made concrete:</p>
+    <ul>
+      <li><strong>Skeleton 1 (have a template)</strong> &rarr; the Pass One prompt above.</li>
+      <li><strong>Skeleton 2 (no template)</strong> &rarr; the two-step Pass Two prompts above.</li>
+    </ul>
+    <p class="doc-note">If a learner is stuck mid-activity, walking from their attempt toward the relevant skeleton is usually more useful than handing them this document outright &mdash; the durable skill is <em>writing</em> a prompt like this, not reading one.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  Chicago Tech Circle &middot; <a href="https://ctc.uic.edu/" target="_blank" rel="noopener">ctc.uic.edu</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pass One Diagnostic Guide · Module 1 · Chicago Tech Circle</title>
+<meta name="description" content="The five landmines to check learner output against during Module 1, Pass One.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="facilitator.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="../../index.html">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="wordmark">Chicago Tech Circle</span>
+  </a>
+</header>
+
+<main>
+  <a class="back-link" href="../../module-1.html">&larr; Back to Module 1</a>
+
+  <p class="eyebrow">Facilitator Reference &middot; Module 1 &middot; Pass One</p>
+  <h1 class="page-title">Pass One &mdash; Diagnostic Guide</h1>
+  <p class="page-subtitle">The five landmines built into the raw data, and how to check a learner&rsquo;s first attempt against each one.</p>
+  <p class="doc-note">For facilitator use, and/or adapted into on-screen guidance if self-directed.</p>
+
+  <div class="doc-section">
+    <h2>The task as given to the learner</h2>
+    <div class="prompt-block">
+      <p class="prompt-label">Prompt to learners</p>
+      <p>&ldquo;You have last month&rsquo;s report (the template) and this month&rsquo;s messy inputs. Use your AI assistant to produce this month&rsquo;s report, using last month&rsquo;s as your guide for structure and tone. Try your first prompt now &mdash; don&rsquo;t overthink it, just try what feels natural.&rdquo;</p>
+    </div>
+    <p>Deliberately vague on purpose &mdash; we want their <em>instinct</em>, not a coached first attempt. Most learners will do something like paste both documents in and write a short instruction such as &ldquo;write this month&rsquo;s version of this report using this data, matching the style of the example.&rdquo; That&rsquo;s a perfectly reasonable first instinct, and the point isn&rsquo;t that it&rsquo;s a bad prompt &mdash; it&rsquo;s that even a reasonable prompt usually needs another pass when the underlying material has been planted with traps.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>What to look for in whatever they produced</h2>
+    <p>Five known landmines are built into the raw data. Check the learner&rsquo;s output against each one. Not every learner will trip every landmine &mdash; that&rsquo;s fine, and worth naming out loud (&ldquo;notice yours actually handled the Hendricks thing well &mdash; let&rsquo;s look at why&rdquo;).</p>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">1</span>The placement number correction (19 &rarr; 18)</p>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Trips it if</span>
+        <span>Output states &ldquo;19 placements&rdquo; or vaguely says &ldquo;18&ndash;19&rdquo; or &ldquo;around 19,&rdquo; OR doesn&rsquo;t mention that the number was corrected.</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Handles it well if</span>
+        <span>Output states 18, ideally because the AI noticed the correction in the Slack scrollback (Priya&rsquo;s Friday message superseding her Wednesday one).</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Why it matters</span>
+        <span>AI will often take the most recent or most emphasized number rather than tracing which message <em>corrects</em> which. This is a real failure mode with any time-ordered, self-correcting data (which is most real workplace data). Worth asking the learner: &ldquo;did you tell the AI that later messages can correct earlier ones, or did you assume it would figure that out?&rdquo;</span>
+      </div>
+    </div>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">2</span>The &ldquo;Needs a Decision&rdquo; section</p>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Trips it if</span>
+        <span>This section is empty, says &ldquo;None,&rdquo; or is missing &mdash; because the AI pattern-matched off last month&rsquo;s template, where it was genuinely empty.</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Handles it well if</span>
+        <span>The Denise/substitute-instructor situation appears here as a live, unresolved decision needing Dana&rsquo;s input.</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Why it matters</span>
+        <span>This is the clearest illustration of &ldquo;a template shows AI a shape, not a guarantee that the same boxes apply this time.&rdquo; Good prompt-fixing conversation: &ldquo;what would you add to your prompt to stop the AI just echoing last month&rsquo;s empty section?&rdquo;</span>
+      </div>
+    </div>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">3</span>The secondhand Hendricks layoff rumor</p>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Trips it if</span>
+        <span>It appears in the output stated as fact, OR appears attributed in a way that makes it sound confirmed. Also worth flagging if it&rsquo;s omitted entirely with no judgment call made &mdash; i.e. the learner never even considered whether it belonged.</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Handles it well if</span>
+        <span>It&rsquo;s either left out with a deliberate reason, or included with appropriate hedging (&ldquo;unconfirmed,&rdquo; &ldquo;informal,&rdquo; &ldquo;worth monitoring&rdquo;) &mdash; and ideally the learner can articulate <em>why</em> they made that call, not just that the AI happened to phrase it cautiously.</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Why it matters</span>
+        <span>This is a judgment trap, not a factual one. AI doesn&rsquo;t know this is sensitive unless told. Best moment in Pass One to make the point: &ldquo;AI doesn&rsquo;t know what&rsquo;s safe to put in front of your board. You do. That judgment doesn&rsquo;t transfer to the prompt unless you put it there.&rdquo;</span>
+      </div>
+    </div>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">4</span>Tone mismatch on the Denise situation</p>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Trips it if</span>
+        <span>Output describes the situation calmly/positively (&ldquo;the team is actively working to find a replacement&rdquo;) in a way that undersells that this might result in cancelling a class for the first time ever.</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Handles it well if</span>
+        <span>Urgency is preserved &mdash; output reflects that this is genuinely unresolved and consequential, not smoothed into vague reassurance.</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Why it matters</span>
+        <span>Matching a template&rsquo;s tone can accidentally import the template&rsquo;s emotional register too. Last month had nothing urgent, so the template reads calm throughout. If the AI is told &ldquo;match the tone of the example,&rdquo; it may apply &ldquo;calm&rdquo; indiscriminately rather than only where it&rsquo;s warranted.</span>
+      </div>
+    </div>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">5</span>The printer / parking lot noise</p>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Trips it if</span>
+        <span>Either appears in the final report (low-effort filtering).</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Handles it well if</span>
+        <span>Both are correctly treated as not board-relevant.</span>
+      </div>
+      <div class="landmine-row">
+        <span class="landmine-row-label">Why it matters</span>
+        <span>This one is usually handled fine by most learners&rsquo; first attempt &mdash; it&rsquo;s the &ldquo;easy&rdquo; landmine. Useful as a confidence-builder: &ldquo;see, you already have good instincts for filtering noise &mdash; the harder skill is the other four.&rdquo;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h2>Facilitator / guided-diagnosis flow</h2>
+    <ol class="flow-steps">
+      <li>Have the learner read their own output against the five checks above (or build this into a checklist on-screen if self-directed).</li>
+      <li>For each landmine tripped, ask <strong>&ldquo;what would you change in your prompt, not in the output&rdquo;</strong> &mdash; the point is prompt-editing as the durable skill, not manually patching this one report.</li>
+      <li>Have them revise their prompt (not hand-edit the text) and regenerate. This is the actual skill rep &mdash; editing the instruction, not the output.</li>
+      <li>Close with the naming moment: &ldquo;What you just did is the core move of working from an example: a template tells AI the <em>shape</em> of what you want, but it doesn&rsquo;t automatically know which parts of this month&rsquo;s content fit which boxes, what&rsquo;s urgent vs. routine, or what&rsquo;s appropriate to share. You have to say that part.&rdquo;</li>
+    </ol>
+  </div>
+
+  <div class="doc-section">
+    <h2>A starter &ldquo;fixed&rdquo; prompt direction</h2>
+    <p class="doc-goal">Not a script &mdash; a direction to nudge toward if a learner is stuck after one revision attempt.</p>
+    <div class="prompt-block">
+      <p class="prompt-label">Direction to nudge toward</p>
+      <p>&ldquo;Before you write the report, look carefully at the Slack messages for any place where someone corrects or updates something they said earlier &mdash; use the most recent version. Don&rsquo;t assume this month&rsquo;s report needs the same section headers filled the same way as last month&rsquo;s example &mdash; if something doesn&rsquo;t fit neatly, or if a section that was empty last month should have something in it this month, flag that to me rather than leaving it blank. Also tell me if you see anything that sounds unconfirmed or secondhand, rather than stating it as settled fact.&rdquo;</p>
+    </div>
+    <p class="doc-note">This isn&rsquo;t meant to be read aloud as &ldquo;the correct prompt&rdquo; &mdash; it&rsquo;s a direction. The learning is in the editing process, not in memorizing this text.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  Chicago Tech Circle &middot; <a href="https://ctc.uic.edu/" target="_blank" rel="noopener">ctc.uic.edu</a>
+</footer>
+
+</body>
+</html>

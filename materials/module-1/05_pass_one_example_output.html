@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pass One Example Output · Module 1 · Chicago Tech Circle</title>
+<meta name="description" content="A realistic first-attempt report, annotated against the five landmines, for facilitator calibration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="facilitator.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="../../index.html">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="wordmark">Chicago Tech Circle</span>
+  </a>
+</header>
+
+<main>
+  <a class="back-link" href="../../module-1.html">&larr; Back to Module 1</a>
+
+  <p class="eyebrow">Facilitator Reference &middot; Module 1 &middot; Pass One</p>
+  <h1 class="page-title">Example AI Output</h1>
+  <p class="page-subtitle">A plausible &ldquo;first prompt&rdquo; result, built to trip most of the five landmines in the Pass One diagnostic guide the way a real naive prompt typically does.</p>
+
+  <div class="facilitator-flag">
+    <span class="flag-icon" aria-hidden="true">!</span>
+    <p><strong>For facilitator use only</strong> &mdash; not meant to be shown to learners before the activity. Showing this as a &ldquo;model bad answer&rdquo; before they&rsquo;ve generated their own removes the discovery the exercise is built around.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>The prompt a typical learner might try</h2>
+    <div class="prompt-block">
+      <p class="prompt-label">Typical first prompt</p>
+      <p>&ldquo;Write this month&rsquo;s version of this report using this data, matching the style of the example.&rdquo;</p>
+    </div>
+    <p class="doc-note">Both <code>02_predecessor_template.md</code> and the messy inputs pasted in alongside it.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>What the AI plausibly generates</h2>
+    <div class="report-mock">
+      <p class="report-title">Monthly Program Update &mdash; Riverside Community Partners</p>
+      <p class="report-meta">Prepared by: [Team Lead] &middot; For: Dana, Program Director &middot; Period: This Month</p>
+
+      <h4>Highlights</h4>
+      <ul>
+        <li>Digital skills cohort (Tue/Thu) grew to 22 enrolled, up from 14 last month &mdash; strong word-of-mouth growth from the spring cohort.</li>
+        <li>Workforce placements: 19 this month against a goal of 15, exceeding target.</li>
+        <li>Financial literacy workshop series wrapped with 31 of 38 enrolled completing &mdash; the best completion rate for this program to date.</li>
+      </ul>
+
+      <h4>Watch List</h4>
+      <ul>
+        <li>The Wednesday evening class&rsquo;s volunteer instructor has moved on to a full-time opportunity; the team is actively working to find a replacement.</li>
+        <li>Four of this month&rsquo;s placements came from a single employer, Hendricks Manufacturing, which is worth monitoring, as Hendricks is planning layoffs in Q3.</li>
+        <li>Financial literacy survey results were strong overall (94% would recommend), though confidence in budgeting afterward was lower than hoped (60%) &mdash; worth revisiting that section next cycle.</li>
+      </ul>
+
+      <h4>Needs a Decision</h4>
+      <ul>
+        <li>None this period.</li>
+      </ul>
+
+      <h4>Notes for Next Month</h4>
+      <ul>
+        <li>Job readiness program&rsquo;s next cohort begins in three weeks, with 9 of 16 spots filled &mdash; outreach should continue.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h2>Annotated against the five landmines</h2>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">1</span>Placement number (19 vs. 18)</p>
+        <span class="status-pill tripped">Trap tripped</span>
+      </div>
+      <p>Output states &ldquo;19,&rdquo; taking Priya&rsquo;s first Wednesday message rather than her Friday correction. This is the single most common miss &mdash; most naive prompts don&rsquo;t think to check for a later message correcting an earlier one.</p>
+    </div>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">2</span>&ldquo;Needs a Decision&rdquo;</p>
+        <span class="status-pill tripped">Trap tripped</span>
+      </div>
+      <p>Copied forward as &ldquo;None this period,&rdquo; pattern-matched from the template, even though the Denise/no-instructor situation is a live, unresolved decision Dana needs to weigh in on.</p>
+    </div>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">3</span>Hendricks rumor</p>
+        <span class="status-pill tripped">Trap tripped</span>
+      </div>
+      <p>Stated as settled fact (&ldquo;Hendricks is planning layoffs in Q3&rdquo;) with no hedge, when the source data was explicitly offhand and secondhand. This is the clearest version of the trap &mdash; notice there&rsquo;s no &ldquo;reportedly&rdquo; or &ldquo;unconfirmed&rdquo; anywhere.</p>
+    </div>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">4</span>Tone on Denise</p>
+        <span class="status-pill tripped">Trap tripped</span>
+      </div>
+      <p>&ldquo;Actively working to find a replacement&rdquo; reads exactly like the template&rsquo;s calm register. It gives no sense that subs have been unresponsive for 4 days, that it&rsquo;s escalated to asking board members, or that a class may be cancelled for the first time ever. Correctly <em>placed</em> in Watch List, but tonally flattened.</p>
+    </div>
+
+    <div class="landmine-card">
+      <div class="landmine-head">
+        <p class="landmine-title"><span class="landmine-num">5</span>Printer / parking lot</p>
+        <span class="status-pill handled">Handled well</span>
+      </div>
+      <p>Neither appears. This is the one most learners get right on the first try &mdash; a good confidence beat when debriefing (&ldquo;you already filtered this correctly, no coaching needed here&rdquo;).</p>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h2>Why show this to yourself, not learners</h2>
+    <p>This example is calibrated to trip 4 of 5 landmines &mdash; not because that&rsquo;s guaranteed, but because it&rsquo;s realistic. Some learners&rsquo; first attempts will do better (especially on #5, sometimes #3). The diagnostic step works either way: it&rsquo;s not about the learner &ldquo;failing,&rdquo; it&rsquo;s about giving them something concrete to check their own output against. If you show this exact text as a &ldquo;model bad answer&rdquo; before they&rsquo;ve generated their own, it removes the discovery &mdash; better to keep this as your own calibration tool while circulating during the activity.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  Chicago Tech Circle &middot; <a href="https://ctc.uic.edu/" target="_blank" rel="noopener">ctc.uic.edu</a>
+</footer>
+
+</body>
+</html>

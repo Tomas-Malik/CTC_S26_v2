@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module Outline · Module 1 · Chicago Tech Circle</title>
+<meta name="description" content="Full lesson plan, section timing, and facilitator run sheet for Module 1: From Mess to Message.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="facilitator.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="../../index.html">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="wordmark">Chicago Tech Circle</span>
+  </a>
+</header>
+
+<main>
+  <a class="back-link" href="../../module-1.html">&larr; Back to Module 1</a>
+
+  <p class="eyebrow">Facilitator Reference &middot; Module 1</p>
+  <h1 class="page-title">From Mess to Message</h1>
+  <p class="page-subtitle">Turning everyday inputs into reports AI can actually help with &mdash; the full lesson plan and facilitator run sheet.</p>
+
+  <div class="doc-meta-list">
+    <div class="doc-meta-item">
+      <span class="meta-label">Format</span>
+      <span class="meta-value">Self-paced website with live facilitator support</span>
+    </div>
+    <div class="doc-meta-item">
+      <span class="meta-label">Target length</span>
+      <span class="meta-value">100&ndash;130 minutes</span>
+    </div>
+    <div class="doc-meta-item">
+      <span class="meta-label">Audience</span>
+      <span class="meta-value">Mixed white-collar employees, no prior AI experience assumed</span>
+    </div>
+    <div class="doc-meta-item">
+      <span class="meta-label">Companion files</span>
+      <span class="meta-value"><code>01_messy_inputs</code> <code>02_predecessor_template</code> <code>03_pass_one_diagnostic</code> <code>04_pass_two_diagnostic</code></span>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <p class="note-label">Tool note</p>
+    <p>All prompt language below is written tool-agnostic (&ldquo;your AI assistant&rdquo;). Once the delivery tool is confirmed, do a find-and-replace pass to name it specifically and, if useful, add real screenshots of that tool&rsquo;s interface.</p>
+  </div>
+
+  <div class="callout-throughline">
+    <p>When you have an example to show AI, use it deliberately &mdash; don&rsquo;t just hand it over and hope. When you don&rsquo;t have an example, build the structure with AI as a separate step before asking it to generate anything.</p>
+  </div>
+  <p class="doc-note" style="margin-top: -1.75rem;">The throughline &mdash; keep this visible to facilitators throughout. Both passes use the <em>same</em> messy raw material; the only thing that changes is which of these two moves the learner is practicing. If a learner remembers one sentence from this module, it should be this one.</p>
+
+  <div class="doc-section">
+    <p class="doc-section-label">Section 1 &middot; 10&ndash;15 min</p>
+    <h2>Setup</h2>
+    <p class="doc-goal"><strong>Goal:</strong> Establish the scenario, the stakes, and surface the learner&rsquo;s untouched instincts before any AI framing.</p>
+    <ul>
+      <li>Present the scenario: they&rsquo;re a team lead at a mid-size nonprofit, just back from a few days off, manager needs the monthly update by end of day for a board packet.</li>
+      <li>Show the raw messy inputs (<code>01_messy_inputs.md</code>) in full &mdash; Slack scrollback, the email from Marcus, Priya&rsquo;s meeting notes.</li>
+      <li><strong>Before introducing AI at all</strong>, ask: &ldquo;If you had to do this the way you&rsquo;d normally do it &mdash; no AI &mdash; what would your first move be?&rdquo; Let a few answers surface (skim and summarize each person, start drafting in a doc, etc.). Don&rsquo;t critique these; they&rsquo;re a baseline for contrast later, not a thing to fix.</li>
+      <li>Frame the two passes coming up: &ldquo;You&rsquo;re going to do this twice. First with a template from last month. Then again, pretending that template never existed.&rdquo;</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+    <p class="doc-section-label">Section 2 &middot; 25&ndash;30 min</p>
+    <h2>Pass One: You have a template</h2>
+    <p class="doc-goal"><strong>Goal:</strong> Teach example-anchored prompting through a live, unscripted first attempt and guided diagnosis.</p>
+    <ol class="flow-steps">
+      <li>Reveal <code>02_predecessor_template.md</code> &mdash; last month&rsquo;s report. Let them read it.</li>
+      <li>Task: &ldquo;Use your AI assistant to produce this month&rsquo;s version, using this as your guide, from the messy inputs you already have. Try your first prompt now &mdash; don&rsquo;t overthink it.&rdquo;</li>
+      <li>Let them run it live. This is unscripted &mdash; you don&rsquo;t know what they&rsquo;ll get.</li>
+      <li>Run the diagnosis using <code>03_pass_one_diagnostic.md</code> &mdash; the five landmines (placement correction, empty &ldquo;Needs a Decision&rdquo; section, the Hendricks rumor, tone mismatch on Denise, printer/parking-lot noise). Check their output against each, not against one fixed &ldquo;correct&rdquo; version.</li>
+      <li>Have them <strong>revise the prompt</strong> (not hand-edit the output) and regenerate.</li>
+      <li>Name the lesson explicitly: a template shows AI the <em>shape</em>, not which content goes where, what&rsquo;s urgent, or what&rsquo;s safe to share. That judgment has to be in the prompt.</li>
+    </ol>
+  </div>
+
+  <div class="doc-section">
+    <p class="doc-section-label">Section 3 &middot; 25&ndash;30 min</p>
+    <h2>Pass Two: No template</h2>
+    <p class="doc-goal"><strong>Goal:</strong> Teach structure-first thinking through the same live-attempt-and-diagnose pattern, with a built-in fork depending on whether they jump to generation or structure first.</p>
+    <ol class="flow-steps">
+      <li>Tell them to set the template aside: &ldquo;Pretend you&rsquo;re brand new, nobody left you an example. Same messy inputs. Figure out what should even go in this report before you generate anything.&rdquo;</li>
+      <li>Let them run it live &mdash; genuinely unscripted on whether they structure first or generate first.</li>
+      <li>Use <code>04_pass_two_diagnostic.md</code> to diagnose whichever path they took:
+        <ul>
+          <li>If they generated first: compare against what a structuring-first attempt produces. The side-by-side comparison is the lesson.</li>
+          <li>If they structured first: check whether the structuring conversation gave AI real context (who&rsquo;s reading, why), left room for unresolved/ambiguous items, and was checked against the actual messy data before generating.</li>
+        </ul>
+      </li>
+      <li>Reinforce explicitly: there is no single right structure. Different valid structures are a feature of this exercise, not noise to converge away.</li>
+      <li>Name the lesson: without an example, AI is still useful &mdash; but only as a structuring partner <em>first</em>, separately from generation.</li>
+    </ol>
+  </div>
+
+  <div class="doc-section">
+    <p class="doc-section-label">Section 4 &middot; 10 min</p>
+    <h2>Bridge: naming the pattern</h2>
+    <p class="doc-goal"><strong>Goal:</strong> Pull the lesson out of the specific story so it survives outside this one report.</p>
+    <ul>
+      <li>Facilitator-led discussion (or reflective writing prompt if self-paced): &ldquo;What did Pass One and Pass Two have in common, despite looking different?&rdquo;</li>
+      <li>Land on the throughline explicitly. Make it sound like a tool they&rsquo;ll reach for again, not a moral of this particular story: <em>&ldquo;Bring an example when you have one and use it deliberately. Build the structure with AI when you don&rsquo;t, before you generate anything.&rdquo;</em></li>
+      <li>Optional: briefly preview that this exact pattern applies to other recurring work (meeting prep, recurring client updates, etc.) &mdash; sets up future modules without committing to them yet.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+    <p class="doc-section-label">Section 5 &middot; 20&ndash;30 min &mdash; this is the evaluable part</p>
+    <h2>Bring your own</h2>
+    <p class="doc-goal"><strong>Goal:</strong> Transfer the skill to the learner&rsquo;s real work, and produce something assessable.</p>
+    <ul>
+      <li>Two paths, learner&rsquo;s choice:
+        <ul>
+          <li><strong>Real data:</strong> bring an actual recurring or templated task from their own job &mdash; a real report, update, or summary they produce &mdash; and run through whichever of Pass One / Pass Two fits (do they have a template or not?).</li>
+          <li><strong>Safe fallback:</strong> if they&rsquo;re not ready to use real work data, provide a second built-in messy scenario (different domain &mdash; e.g. a small business inventory/sales update, or a school administrator&rsquo;s parent-communication digest &mdash; so it doesn&rsquo;t just feel like a re-skin of the nonprofit story) as a like-for-like substitute.</li>
+        </ul>
+      </li>
+      <li>This is the part to actually evaluate: did they bring an example deliberately or hand it over passively? Did they structure first when no example existed? Did they catch the kind of judgment traps (sensitive info, false resolution, stale data) this module trained them to look for?</li>
+      <li>Capture this output (however the website is built to do so) for whoever&rsquo;s giving feedback afterward.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+    <p class="doc-section-label">Section 6 &middot; 5&ndash;10 min</p>
+    <h2>Wrap</h2>
+    <ul>
+      <li>Quick recap of the throughline.</li>
+      <li>Hand them a short keep-able cheat sheet: two prompt skeletons &mdash;
+        <ol>
+          <li><strong>Example-anchored skeleton:</strong> &ldquo;Here&rsquo;s an example of [output type]. Here&rsquo;s [messy input]. Use the example for structure and tone, but check: does everything from this month&rsquo;s input actually fit the same categories, or does something need its own space? Flag anything uncertain, corrected, or sensitive rather than stating it as settled.&rdquo;</li>
+          <li><strong>Structure-first skeleton:</strong> &ldquo;I need to produce [output type] for [specific reader] who cares about [specific thing]. Before generating anything, help me figure out what structure would actually serve that. Here&rsquo;s the real input I&rsquo;ll be working from &mdash; check the structure holds up against it before we finalize.&rdquo;</li>
+        </ol>
+      </li>
+      <li>Note (if relevant): this scenario is one of several this pattern applies to; flag the meeting-prep variant as a likely next module if this pilot lands well.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+    <h2>Notes for whoever evaluates Section 5 submissions</h2>
+    <p>Use the same lens as the diagnostic guides, generalized:</p>
+    <ul>
+      <li><strong>Did they use an example deliberately, or hand it over and hope?</strong> (Pass One skill, applied to their own task.)</li>
+      <li><strong>Did they structure before generating, when no example existed?</strong> (Pass Two skill, applied to their own task.)</li>
+      <li><strong>Did they catch the kind of traps this module trained for</strong> &mdash; stale/corrected information, sensitive content that shouldn&rsquo;t be stated as fact, false resolution of things that are genuinely unresolved, irrelevant noise?</li>
+      <li><strong>Could they articulate <em>why</em> they made a structural or content choice</strong>, not just that the AI&rsquo;s output happened to look fine?</li>
+    </ul>
+    <p>The goal of feedback at this stage is the same throughline, applied to their actual job: did the skill transfer, or did they revert to &ldquo;paste everything in and hope&rdquo; once the training-wheel scenario was gone?</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  Chicago Tech Circle &middot; <a href="https://ctc.uic.edu/" target="_blank" rel="noopener">ctc.uic.edu</a>
+</footer>
+
+</body>
+</html>
