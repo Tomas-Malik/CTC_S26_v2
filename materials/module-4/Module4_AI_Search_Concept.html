@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 (Concept) · AI Search &amp; Retrieval Literacy · Chicago Tech Circle</title>
+<meta name="description" content="Foundation notes for Module 4 — AI Search basics. Not built; captured as a starting point for future work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --magenta: #a5228e;
+  --magenta-dark: #7c1c6b;
+  --magenta-tint: rgba(165, 34, 142, 0.08);
+  --navy: #001e62;
+  --navy-tint: #e9edf6;
+  --amber: #9a6400;
+  --amber-tint: #fbf1dd;
+  --ink: #201a1e;
+  --ink-muted: #6b6270;
+  --paper: #fbf8fa;
+  --card-bg: #ffffff;
+  --border: #ece6ea;
+  --radius: 16px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--magenta-dark); }
+.site-header {
+  padding: 1.5rem clamp(1.25rem, 5vw, 3rem);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.mark { width: 11px; height: 11px; border-radius: 50%; background: var(--magenta); flex-shrink: 0; }
+.wordmark { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; }
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 5vw, 3rem) 5rem;
+}
+.eyebrow {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin: 0 0 0.75rem;
+}
+.page-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+.page-subtitle { font-size: 1.05rem; color: var(--ink-muted); max-width: 54ch; margin: 0 0 1.75rem; }
+.module-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 2rem; }
+.module-tag {
+  display: inline-flex; align-items: center; padding: 0.35rem 0.9rem;
+  border-radius: 999px; background: var(--navy-tint); color: var(--navy);
+  font-size: 0.82rem; font-weight: 600;
+}
+.status-callout {
+  background: var(--amber-tint);
+  border: 1px solid #e9d9ad;
+  border-radius: var(--radius);
+  padding: 1.4rem 1.75rem;
+  margin: 0 0 2.5rem;
+}
+.status-callout p { margin: 0; color: var(--ink); font-size: 0.98rem; }
+.status-callout p.label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--amber); margin: 0 0 0.5rem; text-transform: uppercase;
+}
+.tldr-callout {
+  background: var(--magenta-tint);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin: 0 0 2.5rem;
+}
+.tldr-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--magenta-dark); margin: 0 0 0.5rem; text-transform: uppercase;
+}
+.tldr-callout p:last-child { margin: 0; color: var(--ink); font-size: 1.02rem; }
+.section-heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--ink);
+  margin: 2.75rem 0 1rem;
+}
+.section-heading.first { margin-top: 0; }
+.section-intro { color: var(--ink-muted); font-size: 0.95rem; margin: -0.5rem 0 1.25rem; }
+p { font-size: 0.98rem; }
+.topic-list { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+.topic-list li { display: flex; gap: 0.9rem; align-items: flex-start; }
+.topic-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; background: var(--navy); color: #fff;
+  font-family: "Space Grotesk", sans-serif; font-size: 0.72rem; font-weight: 700;
+  flex-shrink: 0; margin-top: 0.15rem;
+}
+.topic-list .topic-title { font-weight: 600; margin: 0 0 0.2rem; }
+.topic-list .topic-body { margin: 0; color: var(--ink-muted); font-size: 0.94rem; }
+.suggestion-list { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+.suggestion-list li { display: flex; gap: 0.9rem; align-items: flex-start; }
+.suggestion-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--magenta);
+  color: var(--magenta-dark); background: var(--magenta-tint);
+  font-family: "Space Grotesk", sans-serif; font-size: 0.85rem; font-weight: 700;
+  flex-shrink: 0; margin-top: 0.15rem;
+}
+.suggestion-list .topic-title { font-weight: 600; margin: 0 0 0.2rem; }
+.suggestion-list .topic-body { margin: 0; color: var(--ink-muted); font-size: 0.94rem; }
+.open-q-list { margin: 0 0 1rem; padding-left: 1.3rem; }
+.open-q-list li { font-size: 0.95rem; color: var(--ink-muted); margin-bottom: 0.6rem; }
+.open-q-list li::marker { color: var(--magenta); }
+.throughline-box {
+  border: 1px dashed var(--magenta);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin: 0 0 1rem;
+  background: var(--card-bg);
+}
+.throughline-box p { margin: 0; font-size: 1.05rem; font-style: italic; color: var(--ink); }
+.footnote { font-size: 0.85rem; color: var(--ink-muted); margin: 0.75rem 0 0; }
+.site-footer {
+  padding: 2rem clamp(1.25rem, 5vw, 3rem);
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+.site-footer a { color: var(--magenta); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="mark" aria-hidden="true"></span>
+  <span class="wordmark">Chicago Tech Circle</span>
+</header>
+
+<main>
+  <p class="eyebrow">AI Literacy 101 &middot; Module 4 &middot; Concept notes</p>
+  <h1 class="page-title">AI Search &amp; Retrieval Literacy</h1>
+  <p class="page-subtitle">Working title. This module was not built this cycle &mdash; these are the notes captured so the next pass starts from a real foundation instead of a blank page.</p>
+
+  <div class="module-tags">
+    <span class="module-tag">Status: concept only</span>
+    <span class="module-tag">Not built</span>
+    <span class="module-tag">Follows Modules 1&ndash;3</span>
+  </div>
+
+  <div class="status-callout">
+    <p class="label">Where this stands</p>
+    <p>We did not get to a build, a scenario, or facilitator materials for Module 4. What follows is the shape of the module as we discussed it &mdash; the topics, the reasoning behind the order, and one candidate teaching technique &mdash; captured as a foundation, not a finished lesson plan. Nothing below has been tested with learners.</p>
+  </div>
+
+  <h2 class="section-heading first">Why this module</h2>
+  <p>Modules 1&ndash;3 taught learners to bring structure and judgment to AI when <em>producing</em> something &mdash; a report, a summary, an analysis from data. Module 4 turns the same judgment toward AI when it's used to <em>find</em> something. AI search and document-grounded tools are becoming the default way people look things up, and they fail in ways that are easy to miss precisely because the answer arrives looking sourced and confident.</p>
+
+  <h2 class="section-heading">Proposed throughline</h2>
+  <div class="throughline-box">
+    <p>&ldquo;AI search doesn&rsquo;t remove the work of finding things out &mdash; it relocates it. Your job stops being 'search for the answer' and becomes 'verify what it found, and notice what it couldn't have found.'&rdquo;</p>
+  </div>
+  <p class="footnote">Same shape as the Module 1 throughline (judgment lives in the human step, not the AI step) &mdash; applied here to retrieval instead of generation.</p>
+
+  <h2 class="section-heading">Envisioned topic flow</h2>
+  <p class="section-intro">In the order we discussed them. Not yet timed or split into facilitator sections &mdash; that structuring work is still ahead.</p>
+  <ul class="topic-list">
+    <li>
+      <span class="topic-mark">1</span>
+      <div>
+        <p class="topic-title">Information retrieval with LLMs, the basics</p>
+        <p class="topic-body">What "AI search" is actually doing: retrieving candidate documents/passages, then generating an answer from them &mdash; as distinct from (a) classic keyword search returning a link list, and (b) the model just answering from what it memorized in training, with no retrieval at all. Learners should be able to tell these three apart, because each fails differently.</p>
+      </div>
+    </li>
+    <li>
+      <span class="topic-mark">2</span>
+      <div>
+        <p class="topic-title">Grounding search in documents</p>
+        <p class="topic-body">What "grounding" means in practice &mdash; pointing the model at a specific document set (a company wiki, a folder, an uploaded PDF) so it answers from that material instead of the open web or its own memory. Why this is supposed to reduce hallucination, and what changes about the task once the source set is fixed and known.</p>
+      </div>
+    </li>
+    <li>
+      <span class="topic-mark">3</span>
+      <div>
+        <p class="topic-title">Pitfalls of grounded search</p>
+        <p class="topic-body">Grounding lowers hallucination risk, it doesn't remove it: the model can still misquote, blend two sources into one claim, retrieve the wrong section of a long document, answer confidently from a stale or superseded version, or miss the passage that actually answers the question. A citation attached to an answer is not proof the answer is right &mdash; it's a claim to be checked.</p>
+      </div>
+    </li>
+    <li>
+      <span class="topic-mark">4</span>
+      <div>
+        <p class="topic-title">Tips &amp; tricks: verbatim citation vs. interpretation</p>
+        <p class="topic-body">The core technique: ask the model for two separate things &mdash; the exact source text it's relying on (verbatim quote, not paraphrase), and, separately, its interpretation or summary of that text. Put them side by side. Drift between the two &mdash; the interpretation claiming more, or something different, than the quote actually supports &mdash; is the tell. This turns "trust the answer" into a two-second visual check.</p>
+      </div>
+    </li>
+    <li>
+      <span class="topic-mark">5</span>
+      <div>
+        <p class="topic-title">Reframe: this is a verification job</p>
+        <p class="topic-body">Name it explicitly, as the module's turn: using AI search well is primarily the work of verifying what it surfaces, not the work of searching itself. The searching got easy; the checking is now the actual skill, and it's the part that's invisible if you don't know to look for it.</p>
+      </div>
+    </li>
+    <li>
+      <span class="topic-mark">6</span>
+      <div>
+        <p class="topic-title">Structural blindness</p>
+        <p class="topic-body">The systemic risk, distinct from any single wrong answer: over-relying on AI search trains you to stop looking anywhere it can't or doesn't reach &mdash; paywalled or subscription sources, internal/permissioned documents, anything too recent to be indexed, anything the tool's search provider deprioritizes or excludes. You stop knowing what you don't know, because the tool never shows you the shape of its own blind spot. Worth naming as the highest-stakes idea in the module &mdash; it's the one that compounds silently over time rather than showing up as one bad answer.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="section-heading">Other candidates worth folding in</h2>
+  <p class="section-intro">Not part of the original discussion &mdash; flagging these because they round out "AI search basics" and several connect directly to the pitfalls and structural-blindness points above. Worth deciding which earn a place versus staying out of scope.</p>
+  <ul class="suggestion-list">
+    <li>
+      <span class="suggestion-mark">+</span>
+      <div>
+        <p class="topic-title">Search vs. memory, and how to tell which one you got</p>
+        <p class="topic-body">Many tools blend live retrieval with the model's parametric memory in a single answer, often without a clear signal of which parts came from where. Worth a concrete way to check (does it cite a real, checkable source for this specific claim, or not?).</p>
+      </div>
+    </li>
+    <li>
+      <span class="suggestion-mark">+</span>
+      <div>
+        <p class="topic-title">Query formulation for retrieval, not keywords</p>
+        <p class="topic-body">Phrasing a request for a retrieval system is a different skill than typing keywords into a search box &mdash; underspecified or compound questions retrieve worse passages. A short before/after example would land this fast.</p>
+      </div>
+    </li>
+    <li>
+      <span class="suggestion-mark">+</span>
+      <div>
+        <p class="topic-title">Source quality, not just source existence</p>
+        <p class="topic-body">A citation can be real and still be low-quality (SEO content farms, outdated pages, a single unverified blog). Having a source isn't the same as having a good one &mdash; a lightweight standard for judging what got retrieved would pair well with the verbatim-quote technique.</p>
+      </div>
+    </li>
+    <li>
+      <span class="suggestion-mark">+</span>
+      <div>
+        <p class="topic-title">Triangulation across independent sources</p>
+        <p class="topic-body">For anything that matters, check the claim against a second, independently-sourced retrieval rather than accepting the first grounded answer &mdash; the same instinct as not trusting a single citation in research.</p>
+      </div>
+    </li>
+    <li>
+      <span class="suggestion-mark">+</span>
+      <div>
+        <p class="topic-title">Link/citation verification as a habit</p>
+        <p class="topic-body">Even grounded tools occasionally produce citations that don't resolve, or resolve to a page that doesn't say what's claimed. Worth a specific habit: open the source, don't just trust the footnote.</p>
+      </div>
+    </li>
+    <li>
+      <span class="suggestion-mark">+</span>
+      <div>
+        <p class="topic-title">Open-web search vs. your-own-documents search</p>
+        <p class="topic-body">These are different tools with different failure modes &mdash; open web brings in bias, SEO manipulation, and content designed to be picked up by AI answer engines; internal document search brings in stale/duplicate versions and permission gaps. Worth distinguishing explicitly rather than treating "AI search" as one thing.</p>
+      </div>
+    </li>
+    <li>
+      <span class="suggestion-mark">+</span>
+      <div>
+        <p class="topic-title">What not to feed into search-and-ground</p>
+        <p class="topic-body">A privacy/confidentiality beat &mdash; sensitive or proprietary documents shouldn't be uploaded to grounding tools without knowing where that data goes. Natural fit alongside the grounding-in-documents section.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="section-heading">Open questions before this can be built</h2>
+  <p class="section-intro">Based on what Modules 1&ndash;3 each needed before they were teachable.</p>
+  <ol class="open-q-list">
+    <li><strong>Scenario:</strong> what's the concrete, messy task learners practice on? (Modules 1&ndash;3 each anchor to one story &mdash; the nonprofit report, Pinnacle Peak data. This module needs its own equivalent, likely a research or fact-finding task with a deliberately mixed source set.)</li>
+    <li><strong>Source set:</strong> a built document/web set with at least one planted pitfall from Section 3 above (a stale version, a misquotable passage, a claim that only a source outside the set would catch) &mdash; the equivalent of Module 1's messy inputs.</li>
+    <li><strong>Tool decision:</strong> which AI search/grounding tool(s) this gets taught on, and whether the verbatim-quote technique is demonstrated tool-agnostically or with a specific product's interface.</li>
+    <li><strong>Diagnostic guide:</strong> the Module 4 equivalent of the Pass One/Pass Two diagnostics &mdash; a checklist facilitators use to evaluate whether a learner caught the planted pitfalls.</li>
+    <li><strong>Hands-on exercise:</strong> what learners actually do and turn in, mirroring Module 1 Section 5's "bring your own" evaluable step.</li>
+  </ol>
+
+  <p class="footnote">Prepared as a starting point for whoever picks this module back up &mdash; not a commitment to the exact order, scope, or examples above.</p>
+</main>
+
+<footer class="site-footer">
+  Chicago Tech Circle &middot; <a href="https://ctc.uic.edu/" target="_blank" rel="noopener">ctc.uic.edu</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 (Reimagine) · Living Reports · Chicago Tech Circle</title>
+<meta name="description" content="Grounding notes for the Module 3 reimagine — from static report to living, auto-updating webpage. Not built; foundation for future work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --magenta: #a5228e;
+  --magenta-dark: #7c1c6b;
+  --magenta-tint: rgba(165, 34, 142, 0.08);
+  --navy: #001e62;
+  --navy-tint: #e9edf6;
+  --amber: #9a6400;
+  --amber-tint: #fbf1dd;
+  --ink: #201a1e;
+  --ink-muted: #6b6270;
+  --paper: #fbf8fa;
+  --card-bg: #ffffff;
+  --border: #ece6ea;
+  --radius: 16px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--magenta-dark); }
+.site-header {
+  padding: 1.5rem clamp(1.25rem, 5vw, 3rem);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.mark { width: 11px; height: 11px; border-radius: 50%; background: var(--magenta); flex-shrink: 0; }
+.wordmark { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; }
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 5vw, 3rem) 5rem;
+}
+.eyebrow {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin: 0 0 0.75rem;
+}
+.page-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+.page-subtitle { font-size: 1.05rem; color: var(--ink-muted); max-width: 54ch; margin: 0 0 1.75rem; }
+.module-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 2rem; }
+.module-tag {
+  display: inline-flex; align-items: center; padding: 0.35rem 0.9rem;
+  border-radius: 999px; background: var(--navy-tint); color: var(--navy);
+  font-size: 0.82rem; font-weight: 600;
+}
+.status-callout {
+  background: var(--amber-tint);
+  border: 1px solid #e9d9ad;
+  border-radius: var(--radius);
+  padding: 1.4rem 1.75rem;
+  margin: 0 0 1.5rem;
+}
+.status-callout p { margin: 0; color: var(--ink); font-size: 0.98rem; }
+.status-callout p.label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--amber); margin: 0 0 0.5rem; text-transform: uppercase;
+}
+.level-callout {
+  background: var(--navy-tint);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.75rem;
+  margin: 0 0 2.5rem;
+}
+.level-callout p { margin: 0; color: var(--ink); font-size: 0.98rem; }
+.level-callout p.label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--navy); margin: 0 0 0.5rem; text-transform: uppercase;
+}
+.section-heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--ink);
+  margin: 2.5rem 0 1rem;
+}
+.section-heading.first { margin-top: 0; }
+.section-intro { color: var(--ink-muted); font-size: 0.95rem; margin: -0.5rem 0 1.25rem; }
+p { font-size: 0.98rem; }
+.throughline-box {
+  border: 1px dashed var(--magenta);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin: 0 0 1rem;
+  background: var(--card-bg);
+}
+.throughline-box p { margin: 0; font-size: 1.05rem; font-style: italic; color: var(--ink); }
+.beat-list { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+.beat-list li { display: flex; gap: 0.9rem; align-items: flex-start; }
+.beat-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; background: var(--navy); color: #fff;
+  font-family: "Space Grotesk", sans-serif; font-size: 0.72rem; font-weight: 700;
+  flex-shrink: 0; margin-top: 0.15rem;
+}
+.beat-list .topic-title { font-weight: 600; margin: 0 0 0.2rem; }
+.beat-list .topic-body { margin: 0; color: var(--ink-muted); font-size: 0.94rem; }
+.idea-list { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+.idea-list li { display: flex; gap: 0.9rem; align-items: flex-start; }
+.idea-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--magenta);
+  color: var(--magenta-dark); background: var(--magenta-tint);
+  font-family: "Space Grotesk", sans-serif; font-size: 0.85rem; font-weight: 700;
+  flex-shrink: 0; margin-top: 0.15rem;
+}
+.idea-list .topic-title { font-weight: 600; margin: 0 0 0.2rem; }
+.idea-list .topic-body { margin: 0; color: var(--ink-muted); font-size: 0.94rem; }
+.open-q-list { margin: 0 0 1rem; padding-left: 1.3rem; }
+.open-q-list li { font-size: 0.95rem; color: var(--ink-muted); margin-bottom: 0.6rem; }
+.open-q-list li::marker { color: var(--magenta); }
+.footnote { font-size: 0.85rem; color: var(--ink-muted); margin: 0.75rem 0 0; }
+.site-footer {
+  padding: 2rem clamp(1.25rem, 5vw, 3rem);
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+.site-footer a { color: var(--magenta); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="mark" aria-hidden="true"></span>
+  <span class="wordmark">Chicago Tech Circle</span>
+</header>
+
+<main>
+  <p class="eyebrow">AI Literacy 101 &middot; Module 3 &middot; Reimagine notes</p>
+  <h1 class="page-title">Data On Demand: From Static Report to Living Webpage</h1>
+  <p class="page-subtitle">Grounding notes for a reimagined Module 3. Captured so the next pass has the new shape in hand, not the old one.</p>
+
+  <div class="module-tags">
+    <span class="module-tag">Status: reimagine, not built</span>
+    <span class="module-tag">Level 2</span>
+    <span class="module-tag">Prerequisite: Module 2</span>
+  </div>
+
+  <div class="status-callout">
+    <p class="label">Where this stands</p>
+    <p>This supersedes the existing Level 1 Module 3 build (the chart-picking / dashboard deck already in the folder). The reimagine keeps the Pinnacle Peak scenario and the assistant-vs-analyst backbone, but replaces both beats with a hands-on build-and-break exercise. Nothing below has been built or tested with learners.</p>
+  </div>
+
+  <div class="level-callout">
+    <p class="label">Structural change: Level 2</p>
+    <p>Module 3 moves from Level 1 to Level 2, with Module 2 as an explicit prerequisite &mdash; the only leveled-up module in the curriculum; Modules 1, 2, and 4 stay Level 1. The reimagined build asks learners to produce and maintain a working artifact (a live webpage), not just a document, which is a real jump in what's assumed walking in.</p>
+  </div>
+
+  <h2 class="section-heading first">Proposed throughline</h2>
+  <div class="throughline-box">
+    <p>&ldquo;A living tool doesn&rsquo;t remove the work &mdash; it converts it from 'redo the report' into 'notice when it breaks.' That job doesn&rsquo;t go away just because the report updates itself.&rdquo;</p>
+  </div>
+
+  <h2 class="section-heading">The two reimagined beats</h2>
+  <p class="section-intro">Same Pinnacle Peak folder as the current build. Both beats are rewritten.</p>
+  <ul class="beat-list">
+    <li>
+      <span class="beat-mark">1</span>
+      <div>
+        <p class="topic-title">Beat 1 &mdash; build the living report</p>
+        <p class="topic-body">Not a static file this time: learners have AI build an actual webpage, served locally on their own machine, that reads the data folder and renders the report &mdash; with a minimum viable set of interactive features (filter, sort, a toggle, something beyond a static image). The stretch goal: sketch what handing this off to IT for real hosting would take, even if that step isn't executed in the room.</p>
+      </div>
+    </li>
+    <li>
+      <span class="beat-mark">2</span>
+      <div>
+        <p class="topic-title">Beat 2 &mdash; new numbers, hit rebuild, make it break</p>
+        <p class="topic-body">Drop new data into the folder and rebuild &mdash; but this time the new data is designed to break something (a format change, a bad row, a missing column, whatever's easiest to engineer reliably). The exercise is entirely about the two moves that follow: noticing the rebuild produced something wrong, and fixing it. This is the diagnostic beat, rebuilt around a technical failure instead of a content-judgment one.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="section-heading">Big ideas</h2>
+  <ul class="idea-list">
+    <li>
+      <span class="idea-mark">1</span>
+      <div>
+        <p class="topic-title">AI supplements your technical skills</p>
+        <p class="topic-body">Open the learner's imagination to what's now reachable without being an engineer &mdash; a working, interactive webpage built and maintained with AI as the technical partner, not just a writing or analysis one.</p>
+      </div>
+    </li>
+    <li>
+      <span class="idea-mark">2</span>
+      <div>
+        <p class="topic-title">It's not magic &mdash; maintenance is real</p>
+        <p class="topic-body">Ground the excitement from Beat 1 in the reality Beat 2 delivers: hosting, upkeep, and breakage are real, ongoing costs. A living tool trades one-time report-writing for ongoing tech debt &mdash; a fair trade, but not a free one, and learners should leave knowing which they signed up for.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="section-heading">Open questions before this can be built</h2>
+  <ol class="open-q-list">
+    <li><strong>Local serving mechanics:</strong> what "served on their PC" actually means in a workshop setting &mdash; a simple local server AI sets up for them, or something more manual, and what's assumed about their machine.</li>
+    <li><strong>The IT hand-off:</strong> how far Beat 1's "hand-off to IT" goes &mdash; a real conversation about hosting requirements, or just a prompt that gets learners naming what they'd need to ask for.</li>
+    <li><strong>The planted break:</strong> what specific failure Beat 2 engineers into the new data &mdash; needs to be reliable to reproduce and diagnosable without being a lucky guess.</li>
+    <li><strong>Diagnostic guide:</strong> the checklist equivalent to Modules 1 and 3's existing diagnostics, but for "did they notice, and did they actually fix it" on a technical break.</li>
+    <li><strong>Prerequisite enforcement:</strong> whether Level 2 / "Module 2 required" is just a note on the page, or something the delivery format actually gates.</li>
+  </ol>
+
+  <p class="footnote">Prepared as a starting point for whoever picks this reimagine up &mdash; not a commitment to the exact mechanics above.</p>
+</main>
+
+<footer class="site-footer">
+  Chicago Tech Circle &middot; <a href="https://ctc.uic.edu/" target="_blank" rel="noopener">ctc.uic.edu</a>
+</footer>
+
+</body>
+</html>
