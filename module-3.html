@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 3 · Chicago Tech Circle</title>
-<meta name="description" content="Module 3 materials for Chicago Tech Circle.">
+<title>Module 3: Data On Demand · Chicago Tech Circle</title>
+<meta name="description" content="Module 3 overview and materials for Chicago Tech Circle — Data On Demand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -21,20 +21,97 @@
 
 <main>
   <a class="back-link" href="index.html">&larr; All modules</a>
-  <p class="eyebrow">AI Literacy 101 &middot; Module 3 &middot; Level 2</p>
-  <h1 class="page-title">Data On Demand: From Static Report to Living Webpage</h1>
-  <p class="page-subtitle">Reimagined as a living, auto-updating report. This page shows the grounding notes for that reimagine &mdash; the build itself hasn&rsquo;t started.</p>
+
+  <p class="eyebrow">AI Literacy 101 &middot; Module 3</p>
+  <h1 class="page-title">Data On Demand</h1>
+  <p class="page-subtitle">From static report to living webpage: build a real, interactive tool with AI as your technical partner &mdash; then find out what keeping it &ldquo;living&rdquo; actually costs.</p>
 
   <div class="module-tags">
-    <span class="module-tag">Level 2</span>
+    <span class="module-tag level2">Level 2</span>
     <span class="module-tag">Prerequisite: Module 2</span>
-    <span class="module-tag">Status: reimagine, not built</span>
+    <span class="module-tag">~110 minutes</span>
   </div>
 
-  <iframe class="concept-embed" src="materials/module-3/Module3_Reimagine_Concept.html"
-    title="Module 3 reimagine grounding notes"
-    onload="this.style.height = (this.contentWindow.document.body.scrollHeight + 40) + 'px';"></iframe>
-  <a class="embed-openlink" href="materials/module-3/Module3_Reimagine_Concept.html" target="_blank" rel="noopener">Open full page &rarr;</a>
+  <div class="tldr-callout">
+    <p class="tldr-label">TL;DR</p>
+    <p>You&rsquo;ll build an actual webpage &mdash; served locally, reading a folder of Pinnacle Peak revenue data, with real filter/sort/toggle interactivity &mdash; using AI as your technical partner. Then new numbers arrive, you hit rebuild, and something goes wrong on purpose. The second half of the module is entirely about noticing that and fixing it for real.</p>
+  </div>
+
+  <div class="module-meta">
+    <div class="meta-row">
+      <span class="meta-label">Prerequisites</span>
+      <span class="meta-value">Module 2, completed &mdash; this module reuses its data, its scenario, and the verification habits it built, now aimed at a pipeline instead of a paragraph.</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">What you&rsquo;ll need</span>
+      <span class="meta-value">A laptop, an AI assistant that can write <em>and run</em> code on your machine (not just chat &mdash; e.g. Claude or ChatGPT with code execution, or a coding-capable tool), and Python 3 available for the simplest local-server option.</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Who it&rsquo;s for</span>
+      <span class="meta-value">Anyone who&rsquo;s completed Module 2. No engineering background required &mdash; but you should be comfortable opening a terminal when your AI assistant asks you to.</span>
+    </div>
+  </div>
+
+  <h2 class="section-heading">After this module, you&rsquo;ll be able to</h2>
+  <ul class="outcomes-list">
+    <li><span class="outcome-mark">1</span> Build and serve a real, interactive local webpage from raw data &mdash; with AI doing most of the technical work, not just describing what a report should look like.</li>
+    <li><span class="outcome-mark">2</span> Notice when a &ldquo;successful&rdquo; rebuild quietly didn&rsquo;t work &mdash; a rebuild that doesn&rsquo;t crash isn&rsquo;t the same as one that worked.</li>
+    <li><span class="outcome-mark">3</span> Fix the real cause, not the symptom &mdash; so the fix survives the next rebuild instead of breaking again the moment new data shows up.</li>
+  </ul>
+
+  <h2 class="section-heading">Preparation</h2>
+  <ul class="outcomes-list">
+    <li><span class="outcome-mark">1</span> Read the facilitator manual in full, especially &ldquo;The Beat Two answer key&rdquo; &mdash; the fastest way to recognize a correct diagnosis when you see one.</li>
+    <li><span class="outcome-mark">2</span> Run the manual&rsquo;s Quick Start yourself, end to end &mdash; build, drop in the new file, rebuild, fix &mdash; before teaching it live. Watching your own terminal do it is not optional prep here.</li>
+    <li><span class="outcome-mark">3</span> Skim the deck&rsquo;s speaker notes for timing and beat-by-beat framing language.</li>
+    <li><span class="outcome-mark">4</span> Confirm your room&rsquo;s AI assistants can actually execute code / run local commands, and that Python 3 is available &mdash; Beat One depends on it. This is the one logistics dependency worth checking before the session, not during it.</li>
+    <li><span class="outcome-mark">5</span> Keep your own working reference report (from the Quick Start) open in a separate tab &mdash; ready to share only if a group gets genuinely stuck, not up front.</li>
+  </ul>
+
+  <h2 class="section-heading">Materials &mdash; for learners</h2>
+  <a class="materials-card" href="materials/module-3/Module3_Data_On_Demand_Reimagined.pptx" download>
+    <span class="materials-icon" aria-hidden="true">PPTX</span>
+    <div class="materials-info">
+      <p class="materials-title">Module 3 slide deck</p>
+      <p class="materials-sub">Data On Demand, reimagined &mdash; full deck with facilitator speaker notes on every slide</p>
+    </div>
+    <span class="materials-cta">Download &rarr;</span>
+  </a>
+  <a class="materials-card" href="materials/module-3/Module3_Lab_Guide.html" target="_blank" rel="noopener">
+    <span class="materials-icon" aria-hidden="true">HTML</span>
+    <div class="materials-info">
+      <p class="materials-title">Lab guide</p>
+      <p class="materials-sub">Step-by-step for both beats &mdash; what to do at your own laptop, alongside your AI assistant</p>
+    </div>
+    <span class="materials-cta">Open &rarr;</span>
+  </a>
+  <a class="materials-card" href="materials/module-3/Module3_LivingReport_Starter.zip" download>
+    <span class="materials-icon" aria-hidden="true">ZIP</span>
+    <div class="materials-info">
+      <p class="materials-title">Living report starter kit</p>
+      <p class="materials-sub">Beat One&rsquo;s data folder (2023 &ndash; 2026 H1) &mdash; unzip and hand it to your AI assistant</p>
+    </div>
+    <span class="materials-cta">Download &rarr;</span>
+  </a>
+  <a class="materials-card" href="materials/module-3/Pinnacle_Peak_Revenue_2026_H2.xlsx" download>
+    <span class="materials-icon" aria-hidden="true">XLSX</span>
+    <div class="materials-info">
+      <p class="materials-title">New numbers &mdash; H2 2026</p>
+      <p class="materials-sub">Beat Two&rsquo;s drop-in file &mdash; don&rsquo;t open it early, just add it to your data folder when the lab guide says to</p>
+    </div>
+    <span class="materials-cta">Download &rarr;</span>
+  </a>
+
+  <h2 class="section-heading">Materials &mdash; for facilitators</h2>
+  <a class="materials-card" href="materials/module-3/Module3_Facilitator_Manual.html" target="_blank" rel="noopener">
+    <span class="materials-icon" aria-hidden="true">HTML</span>
+    <div class="materials-info">
+      <p class="materials-title">Facilitator manual</p>
+      <p class="materials-sub">Overview, run sheet, full data notes, and the verified answer key for Beat Two&rsquo;s break</p>
+    </div>
+    <span class="materials-cta">Open &rarr;</span>
+  </a>
+  <p class="materials-note">The facilitator manual documents exactly what the Beat Two break is, what it looks like when it happens, and how to verify a fix &mdash; deliberately not in the lab guide or the deck. Reading it counts as spoiling the diagnostic for yourself, in a good way; just don&rsquo;t narrate it to learners before they&rsquo;ve tried.</p>
 
   <div class="outdated-section">
     <p class="outdated-label">Outdated materials</p>

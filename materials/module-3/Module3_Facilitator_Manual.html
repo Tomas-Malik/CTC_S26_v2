@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 Facilitator Manual · Data On Demand · Chicago Tech Circle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --magenta:#a5228e; --magenta-dark:#7c1c6b; --navy:#001e62; --navy-tint:#e9edf6;
+    --level2:#0d7d6f; --level2-tint:rgba(13,125,111,0.1);
+    --ink:#201a1e; --ink-muted:#6b6270; --paper:#fbf8fa; --card-bg:#ffffff; --border:#ece6ea;
+    --warn-bg:#fdf0f5; --warn-border:#f3c9de; --ok-bg:#eef6f0; --ok-border:#c9e3ce;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Inter",sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;}
+  main{max-width:860px;margin:0 auto;padding:3rem 1.5rem 5rem;}
+  .eyebrow{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--magenta);margin:0 0 0.5rem;}
+  h1{font-family:"Space Grotesk",sans-serif;font-size:2.1rem;font-weight:700;color:var(--navy);margin:0 0 0.5rem;}
+  .subtitle{color:var(--ink-muted);font-size:1.05rem;margin:0 0 2rem;}
+  .tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+  .tag{background:var(--navy-tint);color:var(--navy);font-size:0.8rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:20px;}
+  .tag.level2{background:var(--level2-tint);color:var(--level2);}
+  h2{font-family:"Space Grotesk",sans-serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin:2.75rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+  h2:first-of-type{border-top:none;padding-top:0;}
+  h3{font-family:"Space Grotesk",sans-serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin:1.75rem 0 0.5rem;}
+  p{margin:0 0 1rem;}
+  .callout{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin:1.25rem 0;}
+  .callout p:last-child{margin-bottom:0;}
+  ol.prep, ul.plain{padding-left:1.3rem;margin:0 0 1rem;}
+  ol.prep li, ul.plain li{margin-bottom:0.6rem;}
+  .file-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;}
+  .file-name{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 0.6rem;}
+  .file-name .ext{display:inline-block;background:var(--navy-tint);color:var(--navy);font-size:0.7rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:6px;margin-right:0.5rem;vertical-align:middle;}
+  .file-card ul{margin:0.5rem 0 0;padding-left:1.2rem;}
+  .file-card li{margin-bottom:0.4rem;}
+  .flag{display:inline-block;font-size:0.72rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:6px;margin-right:0.4rem;}
+  .flag.correct{background:var(--ok-bg);color:#1d6b34;border:1px solid var(--ok-border);}
+  .flag.trap{background:var(--warn-bg);color:#9c2159;border:1px solid var(--warn-border);}
+  .flag.break{background:#fdeceb;color:#a3312c;border:1px solid #f3c2bd;}
+  .chain{background:var(--navy);color:#fff;border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0;}
+  .chain .eyebrow{color:#f6c9e6;}
+  .chain p{color:#dbe2f3;}
+  .chain .step{font-family:"Space Grotesk",sans-serif;font-weight:600;color:#fff;}
+  code{background:var(--navy-tint);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.9em;}
+  pre{background:#141420;color:#e3e6f3;border-radius:10px;padding:1rem 1.25rem;overflow-x:auto;font-size:0.82rem;line-height:1.55;margin:0.75rem 0 1.25rem;}
+  pre code{background:none;color:inherit;padding:0;font-size:inherit;}
+  .materials-map{display:grid;grid-template-columns:1fr 2fr;gap:0.4rem 1.25rem;margin:1rem 0 1.5rem;font-size:0.92rem;}
+  .materials-map dt{font-family:"Space Grotesk",sans-serif;font-weight:700;color:var(--navy);}
+  .materials-map dd{margin:0 0 0.75rem;color:var(--ink-muted);}
+  table.runsheet{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.9rem;}
+  table.runsheet th{text-align:left;font-family:"Space Grotesk",sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-muted);border-bottom:2px solid var(--border);padding:0.5rem 0.75rem 0.5rem 0;}
+  table.runsheet td{border-bottom:1px solid var(--border);padding:0.65rem 0.75rem 0.65rem 0;vertical-align:top;}
+  table.runsheet td.time{white-space:nowrap;font-weight:600;color:var(--navy);}
+  .shot-row{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0 1.5rem;}
+  .shot-card{flex:1;min-width:260px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .shot-card img{width:100%;display:block;border-bottom:1px solid var(--border);}
+  .shot-card .shot-label{padding:0.6rem 0.9rem;font-size:0.82rem;font-weight:600;}
+  .shot-card.bad .shot-label{color:#a3312c;}
+  .shot-card.good .shot-label{color:#1d6b34;}
+  .footer-note{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);color:var(--ink-muted);font-size:0.85rem;}
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Facilitator Manual &middot; Not for learner distribution</p>
+  <h1>Module 3: Data On Demand</h1>
+  <p class="subtitle">Reimagined as a Level 2 build-and-break lab. Everything you need before you teach this, including the verified answer key for the technical break in Beat Two.</p>
+  <div class="tags">
+    <span class="tag level2">Level 2</span>
+    <span class="tag">~110 minutes</span>
+    <span class="tag">Prerequisite: Module 2</span>
+  </div>
+
+  <h2>Overview</h2>
+  <p>Same Pinnacle Peak Home Services scenario as the old Module 3, same setup: the Director loved last quarter's report enough that she wants one every month &mdash; and said, "can I just check this myself whenever I want." The old (Level 1) build answered that with a one-shot AI-generated dashboard and a chart-picking exercise. This reimagine answers it for real: learners build an actual local webpage that reads a data folder, then we hand them new data engineered to break the rebuild, and the whole second half of the module is about noticing that and fixing it.</p>
+  <p>This is the only Level 2 module in the curriculum, with Module 2 as an explicit prerequisite &mdash; not just for the shared characters and data, but because the verification habits Module 2 built (checking a number against its source, not taking AI's output on faith) are exactly what Beat Two demands, aimed at a pipeline instead of a paragraph.</p>
+
+  <h3>The two beats, reimagined</h3>
+  <div class="file-card">
+    <p class="file-name">Beat One &mdash; Build the living report</p>
+    <p>Learners point their AI assistant at a folder of Pinnacle Peak revenue spreadsheets and have it build a webpage that reads that folder and renders it &mdash; served locally, with real interactivity (filter / sort / toggle), not a static export. Stretch: sketch what handing this to IT for real hosting would take.</p>
+  </div>
+  <div class="file-card">
+    <p class="file-name">Beat Two &mdash; New numbers, hit rebuild, make it break</p>
+    <p>A new six-month data file goes into the folder. Learners rebuild. The rebuild does <em>not</em> crash &mdash; it silently fails to pick up the new file, so the report still looks fine at a glance. The exercise is entirely the two moves that follow: noticing the rebuild didn't actually do what it claimed, and fixing the real cause (not the symptom).</p>
+  </div>
+
+  <h3>The two big ideas</h3>
+  <div class="file-card">
+    <p class="file-name">1. AI supplements your technical skills</p>
+    <p>Beat One is meant to open the room's imagination &mdash; most learners will leave having run a local web server for the first time, built and shipped by prompting, not typing code. Let that land before Beat Two complicates it.</p>
+  </div>
+  <div class="file-card">
+    <p class="file-name">2. It's not magic &mdash; maintenance is real</p>
+    <p>Beat Two is the grounding wire. A living tool trades one-time report-writing for ongoing tech debt &mdash; hosting, upkeep, and breakage are real, recurring costs, not a one-time build fee. Both ideas need to land in the same room for this module to do its job; don't let Beat One's excitement be the last word.</p>
+  </div>
+
+  <h2>How the materials fit together</h2>
+  <p>Four documents this time, not one deck. Know the map before you prep:</p>
+  <dl class="materials-map">
+    <dt>Slide deck</dt>
+    <dd><code>Module3_Data_On_Demand_Reimagined.pptx</code> &mdash; what you present. Frames the scenario, both beats, and both big ideas. It does <em>not</em> contain step-by-step build instructions &mdash; it points learners to the lab guide for that, the same way you'd point them to a handout instead of reading it aloud.</dd>
+    <dt>Lab guide</dt>
+    <dd><code>Module3_Lab_Guide.html</code> &mdash; the learner-facing steps for both beats, plus the MVP checklist and the stretch IT hand-off prompt. This is what learners actually follow with their hands on the keyboard. It's deliberately silent on what the Beat Two break actually is &mdash; don't paraphrase the answer key from this manual into it live.</dd>
+    <dt>Starter kit</dt>
+    <dd><code>Module3_LivingReport_Starter.zip</code> &mdash; the data folder (2023 through 2026 H1) learners unzip and hand to their AI assistant for Beat One. Nothing pre-built inside for learners; see below for the facilitator-only working reference.</dd>
+    <dt>This manual</dt>
+    <dd>Prep, run sheet, full data notes, and the verified Beat Two answer key &mdash; screenshots included, so you recognize a correct diagnosis when you see one and know what "fixed" actually looks like.</dd>
+  </dl>
+  <p style="font-size:0.85rem;color:var(--ink-muted);">Built from the original grounding notes in <a href="Module3_Reimagine_Concept.html">Module3_Reimagine_Concept.html</a>, kept in the folder for provenance &mdash; the open questions it raised (serving mechanics, break design, diagnostic guide, prerequisite enforcement) are the ones this manual and the lab guide answer.</p>
+
+  <h2>Preparation</h2>
+  <ol class="prep">
+    <li>Read this manual's <strong>"The Beat Two answer key"</strong> section in full before you teach this &mdash; it's the fastest way to recognize a correct fix versus a lucky-looking one.</li>
+    <li>Actually run the starter kit yourself once, start to finish, including dropping in the H2 file and reproducing the break &mdash; see the Quick Start below. Reading about it isn't the same as watching your own terminal do it.</li>
+    <li>Skim the deck's speaker notes for timing and beat-by-beat framing language.</li>
+    <li>Confirm learners have a laptop, an AI assistant with the ability to run commands / write and execute code on their machine (not just chat), and Python 3 available &mdash; the reference build uses <code>python3 -m http.server</code>, the simplest thing that needs zero installs. If your room's AI tool can't execute code or start a local process, flag that before the session; Beat One depends on it.</li>
+    <li>Have your own working copy of the report (built via the Quick Start below) open and ready to share-screen as a "here's roughly what you're aiming for" reference if a group stalls in Beat One &mdash; don't show it up front.</li>
+  </ol>
+
+  <h3>Quick start &mdash; reproduce the whole arc yourself</h3>
+  <pre><code>unzip Module3_LivingReport_Starter.zip -d ref && cd ref
+python3 build.py                     # clean rebuild: 42 months, 0 warnings
+cd report && python3 -m http.server 8000
+# open http://localhost:8000/ — confirm it runs through Jun 2026
+
+# now reproduce Beat Two:
+cd ..
+cp ../Pinnacle_Peak_Revenue_2026_H2.xlsx data/
+python3 build.py                     # "succeeds" — but read the console output
+# refresh the browser tab — still stuck at Jun 2026, 6 warnings in Build details</code></pre>
+
+  <h2>The Beat Two answer key</h2>
+  <p>This is the part worth being precise about. The break is designed to be <strong>100% reproducible</strong> &mdash; it isn't a subtle content judgment call like Module 2's traps, it's a real data-format change that will break any rebuild pipeline built the way most AI assistants build one on a first pass.</p>
+
+  <h3>What's actually wrong with the H2 file</h3>
+  <div class="file-card">
+    <p class="file-name"><span class="ext break">BREAK</span>Pinnacle_Peak_Revenue_2026_H2.xlsx</p>
+    <ul>
+      <li>Every prior file (2023, 2024, 2025, 2026 H1) stores HVAC / Plumbing / Cleaning / Total as plain numbers. The H2 file stores the exact same columns &mdash; <strong>same headers, same layout</strong> &mdash; as currency-formatted <strong>text</strong>: <code>"$57,800"</code> instead of <code>57800</code>.</li>
+      <li>In-story reason (stated in the file's own note row, for learners who read it): Pinnacle Peak's ops team finished rolling out a new reporting portal in Q3 2026, and its export format changed. This is a real, common failure mode &mdash; not an arbitrary gotcha &mdash; and it's the same "systems drift" thread Module 2 already planted (the July system migration mentioned in <code>Pinnacle_Peak_Q3_Data.xlsx</code>).</li>
+      <li>Because the header names and sheet layout are unchanged, this is a <strong>data-type</strong> problem, not a schema problem &mdash; a rebuild script that looks up columns by name will find the right column and then fail to do math on it.</li>
+    </ul>
+  </div>
+
+  <h3>What actually happens on rebuild</h3>
+  <p>The reference build script's original parser is <code>float(cell_value)</code>, wrapped in a per-row try/except that logs a warning and <strong>skips</strong> any row it can't parse, rather than crashing the whole build. That's a realistic choice &mdash; plenty of real pipelines are written exactly this defensively, and it's arguably reasonable-looking code. The result: the rebuild exits cleanly (no red error, no crash), reports "5 source files" loaded, and still writes out a report &mdash; but all six new months are silently missing. The report still ends at June 2026 and the revenue totals don't move, even though a new file is sitting right there in the data folder.</p>
+
+  <div class="shot-row">
+    <div class="shot-card bad">
+      <img src="module3-facilitator-broken.png" alt="Report after dropping in the H2 file and rebuilding, unfixed: status bar shows 5 source files and 6 build warnings, most recent month is still Jun 2026, total revenue unchanged at $4,060,400, chart stops in June, and the Build details panel lists a parse warning for each of July–December.">
+      <p class="shot-label">Unfixed rebuild &mdash; looks almost fine at a glance</p>
+    </div>
+    <div class="shot-card good">
+      <img src="module3-facilitator-fixed.png" alt="Report after the fix: status bar shows 5 source files and no warnings, most recent month is Dec 2026, total revenue $4,712,300, chart runs through December, Build details panel shows no warnings.">
+      <p class="shot-label">After the real fix &mdash; full 48 months, zero warnings</p>
+    </div>
+  </div>
+
+  <p>What to look for as the "notice" signal, in order of how likely learners are to catch each one:</p>
+  <ul class="plain">
+    <li><strong>Most visible:</strong> the chart and table still end in June 2026 after adding six months of new data. This is the one to nudge toward if a group is stuck: "you just added data through December &mdash; does the report agree with that?"</li>
+    <li><strong>Also visible:</strong> the "Total revenue on file" and trailing-12-month KPI tiles don't change between rebuilds.</li>
+    <li><strong>For anyone who checks it:</strong> the status bar literally says "6 build warning(s)," and the Build details panel (collapsed by default, bottom of the page) lists a plain-language reason for each one.</li>
+    <li><strong>For anyone who reads the terminal:</strong> the console output from <code>build.py</code> prints the same six warnings live during the rebuild.</li>
+  </ul>
+
+  <h3>The real fix (and the trap fix to watch for)</h3>
+  <p>The correct fix touches the parser in <code>build.py</code>, not the output. It needs to accept both a plain number (every file through 2026 H1) and a currency-formatted string (2026 H2 on):</p>
+  <pre><code>def parse_number(value):
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        cleaned = value.replace("$", "").replace(",", "").strip()
+        return float(cleaned)
+    raise TypeError(f"unsupported cell type: {type(value)!r}")</code></pre>
+  <p>After that change, re-running <code>build.py</code> parses all six H2 months with zero warnings, and the report runs cleanly through December 2026 (screenshot above) &mdash; total revenue on file moves from <strong>$4,060,400 to $4,712,300</strong>, exactly the H2 total ($651,900). That exact number is a fast way to confirm a group's fix actually worked, not just stopped complaining.</p>
+  <div class="callout">
+    <p><strong>Watch for the trap fix:</strong> the fastest way to make the warnings "go away" is to hand-edit <code>report/data.json</code> directly, or hardcode the missing months into the page. Both make the report look right for exactly one rebuild and silently break again the moment anyone reruns the real pipeline &mdash; which defeats the entire point of a living report. The lab guide tells learners not to do this; if you see it happen, that's the moment to intervene, not after.</p>
+  </div>
+  <p>Groups may also reach for other valid variations on the fix &mdash; e.g. cleaning the value inside the row loop instead of a helper function, or having their AI rewrite the whole parsing section differently. That's fine. The bar is: does <code>build.py</code> itself change, does it handle the new format without breaking the old files, and does a rerun produce all 48 months with no warnings.</p>
+
+  <h2>Run sheet</h2>
+  <p class="callout" style="font-style:italic;">Throughline to keep visible throughout: "A living tool doesn't remove the work &mdash; it converts it from 'redo the report' into 'notice when it breaks.' That job doesn't go away just because the report updates itself."</p>
+  <table class="runsheet">
+    <tr><th>Time</th><th>Section</th><th>What happens</th></tr>
+    <tr><td class="time">10 min</td><td>Setup</td><td>Recap Module 2 in one breath (Pinnacle Peak, the number chain, assistant vs. analyst). Read the Director's message. Land the ask: not a deck, an on-demand answer. Before touching AI: what would learners want a self-serve report to show first?</td></tr>
+    <tr><td class="time">25 min</td><td>Beat One &mdash; build</td><td>Learners unzip the starter kit and build the living report with their AI assistant, per the lab guide. Circulate for tech troubleshooting (local server issues) only &mdash; let everything else surface on its own.</td></tr>
+    <tr><td class="time">5 min</td><td>Beat One &mdash; check-in</td><td>Quick show of hands against the MVP checklist. Not everyone needs to be fully done to move on &mdash; Beat Two works with a partially-built report too.</td></tr>
+    <tr><td class="time">5 min</td><td>Big Idea One</td><td>Name it explicitly: what just happened was building and running real, working software by prompting. Let that sit for a moment before you complicate it.</td></tr>
+    <tr><td class="time">20 min</td><td>Beat Two &mdash; break &amp; notice</td><td>Hand out the H2 file. Drop in, rebuild, look. Don't confirm or deny anything when learners ask "is this supposed to look like this?" &mdash; ask what they'd check next.</td></tr>
+    <tr><td class="time">15 min</td><td>Beat Two &mdash; fix</td><td>Work the real cause with their AI assistant. Watch for the trap fix (hand-editing output). Confirm via rebuild, not eyeballing.</td></tr>
+    <tr><td class="time">5 min</td><td>Big Idea Two</td><td>Name it explicitly: the break was the point, not a bug in the exercise. A living tool is an ongoing commitment, not a one-time deliverable.</td></tr>
+    <tr><td class="time">10 min</td><td>Naming the pattern</td><td>Pull back to vocabulary: this module's verification burden lands on a pipeline instead of a paragraph, but it's the same "don't outsource your thinking" muscle from Modules 1 and 2.</td></tr>
+    <tr><td class="time">10 min</td><td>Bring it home / wrap</td><td>Where does learners' own work have something that "should just update itself" but doesn't yet &mdash; and what would they actually need to keep it honest?</td></tr>
+  </table>
+  <p class="footnote" style="margin-top:-0.5rem;">~105&ndash;110 minutes total &mdash; longer than Modules 1 and 2's 90. That's a deliberate consequence of the hands-on technical build, not scope creep; don't compress Beat One's build time to force a 90-minute fit.</p>
+
+  <h2>Data notes &mdash; the rest of the folder</h2>
+  <p>The 2023&ndash;2026 H1 files are unchanged from Module 2 / the old Module 3 &mdash; full details live in the <a href="../module-2/Module2_Facilitator_Manual.html">Module 2 facilitator manual</a>. The short version, if you don't want to flip back:</p>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">XLSX</span>Pinnacle_Peak_Revenue_2023 / 2024.xlsx</p>
+    <ul><li><span class="flag correct">CORRECT</span> Clean actuals. 2023 Q3 total reconciles to $261,500, same baseline as Module 2.</li></ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">XLSX</span>Pinnacle_Peak_Revenue_2025.xlsx</p>
+    <ul><li><span class="flag trap">CAVEAT</span> Notes state all 2025 figures are management estimates, not actuals &mdash; not a Beat Two concern (the estimates are still numeric and parse fine), but worth knowing if a sharp learner asks why 2025 looks unusually smooth.</li></ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">XLSX</span>Pinnacle_Peak_Revenue_2026_H1.xlsx</p>
+    <ul><li><span class="flag trap">OPEN THREAD</span> Notes flag Cleaning softness in Q2 2026, "possible East region competitor impact," still unresolved. The H2 file's note says this continued into Q3 and eased slightly by December &mdash; consistent, not contradicted, if a learner tracks it across both files.</li></ul>
+  </div>
+
+  <h2>Facilitator judgment calls</h2>
+  <ul class="plain">
+    <li><strong>If a group's AI assistant can't start a local server.</strong> Some tools can write code but not execute it. Have a fallback ready: pair them with a group whose tool can, or let them narrate what they'd run while you or a neighbor executes it. Don't let this stall Beat One for the whole room.</li>
+    <li><strong>If a group finishes Beat One early.</strong> Point them at the IT hand-off stretch in the lab guide rather than letting them idle &mdash; it's designed to absorb exactly this.</li>
+    <li><strong>How much to hint during "notice."</strong> If a group hits the 10-minute mark in Beat Two still convinced the rebuild worked, the one fair nudge is "you added six months &mdash; does the report agree with that?" Don't say more than that unprompted.</li>
+    <li><strong>The trap fix.</strong> Treat a hand-edited <code>data.json</code> the same weight Module 2 gives the OLD-tab mistake &mdash; a real, worth-naming error, not a shortcut to wave through because the room is short on time.</li>
+    <li><strong>Whether to show your own reference build.</strong> Keep it in your back pocket, not on the projector by default &mdash; showing it early removes the build struggle Beat One is actually for. Reserve it for a group that's genuinely stuck, not merely slower than others.</li>
+  </ul>
+
+  <p class="footer-note">Chicago Tech Circle &middot; Module 3 companion materials. This manual is for facilitator preparation &mdash; the answer key above is meant to inform your circulating and debriefing, not to be read aloud before learners have tried noticing and fixing it themselves.</p>
+
+</main>
+</body>
+</html>

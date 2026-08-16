@@ -322,6 +322,11 @@ main {
   font-weight: 600;
 }
 
+.module-tag.level2 {
+  background: var(--level2-tint);
+  color: var(--level2-dark);
+}
+
 .tldr-callout {
   background: var(--magenta-tint);
   border-radius: var(--radius);
