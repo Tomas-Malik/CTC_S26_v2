@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 Facilitator Manual · Search &amp; Verify · Chicago Tech Circle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --magenta:#a5228e; --magenta-dark:#7c1c6b; --navy:#001e62; --navy-tint:#e9edf6;
+    --amber:#9a6400; --amber-tint:rgba(154,100,0,0.1);
+    --ink:#201a1e; --ink-muted:#6b6270; --paper:#fbf8fa; --card-bg:#ffffff; --border:#ece6ea;
+    --warn-bg:#fdf0f5; --warn-border:#f3c9de; --ok-bg:#eef6f0; --ok-border:#c9e3ce;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Inter",sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;}
+  main{max-width:860px;margin:0 auto;padding:3rem 1.5rem 5rem;}
+  .eyebrow{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--magenta);margin:0 0 0.5rem;}
+  h1{font-family:"Space Grotesk",sans-serif;font-size:2.1rem;font-weight:700;color:var(--navy);margin:0 0 0.5rem;}
+  .subtitle{color:var(--ink-muted);font-size:1.05rem;margin:0 0 2rem;}
+  .tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+  .tag{background:var(--navy-tint);color:var(--navy);font-size:0.8rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:20px;}
+  h2{font-family:"Space Grotesk",sans-serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin:2.75rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+  h2:first-of-type{border-top:none;padding-top:0;}
+  h3{font-family:"Space Grotesk",sans-serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin:1.75rem 0 0.5rem;}
+  p{margin:0 0 1rem;}
+  .callout{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin:1.25rem 0;}
+  .callout p:last-child{margin-bottom:0;}
+  ol.prep, ul.plain{padding-left:1.3rem;margin:0 0 1rem;}
+  ol.prep li, ul.plain li{margin-bottom:0.6rem;}
+  .file-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;}
+  .file-name{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 0.6rem;}
+  .file-name .ext{display:inline-block;background:var(--navy-tint);color:var(--navy);font-size:0.7rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:6px;margin-right:0.5rem;vertical-align:middle;}
+  .file-card ul{margin:0.5rem 0 0;padding-left:1.2rem;}
+  .file-card li{margin-bottom:0.4rem;}
+  .flag{display:inline-block;font-size:0.72rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:6px;margin-right:0.4rem;}
+  .flag.correct{background:var(--ok-bg);color:#1d6b34;border:1px solid var(--ok-border);}
+  .flag.trap{background:var(--warn-bg);color:#9c2159;border:1px solid var(--warn-border);}
+  .flag.stale{background:#fdeceb;color:#a3312c;border:1px solid #f3c2bd;}
+  code{background:var(--navy-tint);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.9em;}
+  pre{background:#141420;color:#e3e6f3;border-radius:10px;padding:1rem 1.25rem;overflow-x:auto;font-size:0.82rem;line-height:1.55;margin:0.75rem 0 1.25rem;}
+  pre code{background:none;color:inherit;padding:0;font-size:inherit;}
+  .materials-map{display:grid;grid-template-columns:1fr 2fr;gap:0.4rem 1.25rem;margin:1rem 0 1.5rem;font-size:0.92rem;}
+  .materials-map dt{font-family:"Space Grotesk",sans-serif;font-weight:700;color:var(--navy);}
+  .materials-map dd{margin:0 0 0.75rem;color:var(--ink-muted);}
+  table.runsheet{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.9rem;}
+  table.runsheet th{text-align:left;font-family:"Space Grotesk",sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-muted);border-bottom:2px solid var(--border);padding:0.5rem 0.75rem 0.5rem 0;}
+  table.runsheet td{border-bottom:1px solid var(--border);padding:0.65rem 0.75rem 0.65rem 0;vertical-align:top;}
+  table.runsheet td.time{white-space:nowrap;font-weight:600;color:var(--navy);}
+  table.factcheck{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.88rem;}
+  table.factcheck th{text-align:left;font-family:"Space Grotesk",sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.03em;color:var(--ink-muted);border-bottom:2px solid var(--border);padding:0.5rem 0.6rem 0.5rem 0;}
+  table.factcheck td{border-bottom:1px solid var(--border);padding:0.6rem 0.6rem 0.6rem 0;vertical-align:top;}
+  table.factcheck td.stale{color:#a3312c;font-weight:600;}
+  table.factcheck td.current{color:#1d6b34;font-weight:600;}
+  .shot-row{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0 1.5rem;}
+  .shot-card{flex:1;min-width:260px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .shot-card img{width:100%;display:block;border-bottom:1px solid var(--border);}
+  .shot-card .shot-label{padding:0.6rem 0.9rem;font-size:0.82rem;font-weight:600;}
+  .shot-card.bad .shot-label{color:#a3312c;}
+  .shot-card.good .shot-label{color:#1d6b34;}
+  .footer-note{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);color:var(--ink-muted);font-size:0.85rem;}
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Facilitator Manual &middot; Not for learner distribution</p>
+  <h1>Module 4: Search &amp; Verify</h1>
+  <p class="subtitle">A new Level 1 module on AI search and document grounding. Everything you need before you teach this, including the verified answer key for all three beats.</p>
+  <div class="tags">
+    <span class="tag">Level 1</span>
+    <span class="tag">~100 minutes</span>
+    <span class="tag">No prerequisite</span>
+  </div>
+
+  <h2>Overview</h2>
+  <p>Modules 1&ndash;3 taught judgment when AI <em>produces</em> something &mdash; a report, a summary, an analysis from data. Module 4 turns that same judgment toward AI when it's used to <em>find</em> something. Learners play a volunteer researcher for a neighborhood newsletter, the Elston Heights Bulletin, fact-checking a draft article about a local development proposal before it runs &mdash; using a real (fictional) case file of hearing minutes, fact sheets, a press release, a comparison chart, and the draft itself.</p>
+  <p>This is a new module, not a reimagine, and it's Level 1 with no prerequisite &mdash; it stands alongside Modules 1 and 2, not after Module 3. The scenario, cast, and documents are entirely new (Elston Heights, not Pinnacle Peak) so there's no dependency on prior modules' materials.</p>
+
+  <h3>The three beats</h3>
+  <div class="file-card">
+    <p class="file-name">Beat One &mdash; Ground it</p>
+    <p>Learners ask an AI assistant about the (fictional) development project with no documents attached, then again after grounding it in the real case file. Because the scenario is invented, the ungrounded pass is guaranteed to either be honestly empty or confidently wrong &mdash; there is nothing for any model to have memorized. That guarantee is what makes this beat reliable regardless of which AI tool a room happens to be using, the same design principle behind Module 3's reproducible Beat Two break.</p>
+  </div>
+  <div class="file-card">
+    <p class="file-name">Beat Two &mdash; Extract it, check it</p>
+    <p>Learners pull exact facts from three different formats (running text, a table, an image), then use those facts to do the actual assignment: catch which figures in the draft article are stale. The draft cites the superseded February proposal's unit/affordability/height numbers while getting parking and the retail commitment right &mdash; a realistic, partial failure, not a uniformly wrong document.</p>
+  </div>
+  <div class="file-card">
+    <p class="file-name">Beat Three &mdash; Summarize it, verify it</p>
+    <p>Learners ask a synthesis question with no single verbatim answer (why the proposal changed; how the community reacted) and learn a different verification technique &mdash; tracing claims to passages and flagging unsupported additions &mdash; since there's no one sentence to check a summary against.</p>
+  </div>
+
+  <h3>The reframe to land</h3>
+  <div class="file-card">
+    <p class="file-name">1. Searching got easy. Checking is the actual skill.</p>
+    <p>Using AI search well is primarily the work of verifying what it surfaces, not the work of searching itself. Say this explicitly near the end &mdash; it's the module's thesis, and it's easy for a room to leave with "grounding" as the takeaway instead, which is only Beat One.</p>
+  </div>
+  <div class="file-card">
+    <p class="file-name">2. Structural blindness is the highest-stakes idea in the room</p>
+    <p>Distinct from any single wrong answer: over-relying on AI search trains people to stop looking anywhere it can't reach &mdash; paywalled sources, internal documents, anything too recent to be indexed. You stop knowing what you don't know, because the tool never shows you the shape of its own blind spot. This is the one idea worth protecting time for even if the room is running long.</p>
+  </div>
+
+  <h2>How the materials fit together</h2>
+  <dl class="materials-map">
+    <dt>Slide deck</dt>
+    <dd><code>Module4_Search_And_Verify.pptx</code> &mdash; what you present. Frames the scenario and all three beats. It does not contain step-by-step instructions &mdash; it points learners to the lab guide for that.</dd>
+    <dt>Lab guide</dt>
+    <dd><code>Module4_Lab_Guide.html</code> &mdash; the learner-facing steps for all three beats. Deliberately doesn't reveal which specific figures in the draft are wrong &mdash; don't paraphrase this manual's answer key into it live.</dd>
+    <dt>Case file starter kit</dt>
+    <dd><code>Module4_CaseFile_Starter.zip</code> &mdash; all six source documents plus a plain-text bundle, ready to unzip and hand to an AI assistant. Nothing pre-answered inside.</dd>
+    <dt>This manual</dt>
+    <dd>Prep, run sheet, document notes, and the verified answer key for all three beats.</dd>
+  </dl>
+  <p style="font-size:0.85rem;color:var(--ink-muted);">Earlier grounding notes for this module are archived at <a href="archive/Module4_AI_Search_Concept.html">archive/Module4_AI_Search_Concept.html</a> for provenance &mdash; superseded by this manual and the materials above, kept for reference only.</p>
+
+  <h2>Preparation</h2>
+  <ol class="prep">
+    <li>Read this manual's <strong>"The verified answer key"</strong> section in full before you teach this &mdash; it's the fastest way to recognize a correct catch versus a lucky-looking one, especially for Beat Three's summaries.</li>
+    <li>Actually do all three beats yourself with a real AI assistant before the session &mdash; see the Quick Start below. Which tool you use matters less than doing it firsthand once.</li>
+    <li>Skim the deck's speaker notes for timing and beat-by-beat framing language.</li>
+    <li>Confirm learners have an AI assistant that can accept a file upload or a long paste &mdash; that's the entire technical bar for this module. Unlike Module 3, nobody needs to run code or start a local server; grounding here just means attaching or pasting documents into a chat.</li>
+    <li>Keep your own tested answers from the Quick Start on hand to reference if a group stalls &mdash; don't share them up front.</li>
+  </ol>
+
+  <h3>Quick start &mdash; do all three beats yourself first</h3>
+  <ol class="prep">
+    <li>Unzip <code>Module4_CaseFile_Starter.zip</code>. Ask a fresh AI chat (no documents attached) what it knows about the Foundry on Elston project. Note whether it says it doesn't know or invents an answer.</li>
+    <li>Attach the documents (or paste <code>06_all_documents_plain_text.md</code>) and ask the identical question. Confirm it now answers correctly and can name its sources.</li>
+    <li>Ask for the exact vote-result quote, the exact affordable-unit count, and the exact total-unit figure from the chart image. Confirm all three match "The verified answer key" below.</li>
+    <li>Open the draft article yourself and find the stale figures before checking the answer key &mdash; this is the fastest way to calibrate how much of a nudge learners will actually need.</li>
+    <li>Ask the two Beat Three synthesis questions and read your own answers against the diagnostic notes below.</li>
+  </ol>
+
+  <h2>The verified answer key</h2>
+  <p>Every answer below is directly traceable to a specific document in the starter kit &mdash; not a judgment call. Case number <code>DPD-2026-0142</code> throughout.</p>
+
+  <h3>Beat One &mdash; what to expect</h3>
+  <div class="callout">
+    <p><strong>Ungrounded prompt:</strong> "What do you know about the Foundry on Elston development in Elston Heights, Chicago &mdash; how many units, and what's the affordability breakdown?"</p>
+    <p>Since Elston Heights and the Foundry on Elston are entirely fictional, no AI assistant has this in training data. Either outcome &mdash; an honest "I don't know" or a confident fabrication &mdash; proves the point, and the design guarantees one of them happens regardless of which tool the room uses. <strong>Grounded</strong>, the same question should return 64 units, 16 affordable (25%), 4 stories, 40 parking spaces, 6,000 sq ft retail, with sources named.</p>
+  </div>
+
+  <h3>Beat Two &mdash; the fact-check table</h3>
+  <table class="factcheck">
+    <tr><th>Figure</th><th>Draft says</th><th>Current record says</th><th>Where to verify</th></tr>
+    <tr><td>Total units</td><td class="stale">80</td><td class="current">64</td><td>Revised fact sheet table; chart image; hearing minutes &sect;2</td></tr>
+    <tr><td>Affordable units</td><td class="stale">8 (implied 10%)</td><td class="current">16 (25%)</td><td>Revised fact sheet table; chart image; press release</td></tr>
+    <tr><td>Building height</td><td class="stale">Six stories</td><td class="current">Four stories</td><td>Revised fact sheet table; press release</td></tr>
+    <tr><td>Parking spaces</td><td class="current">40 (already correct)</td><td class="current">40</td><td>Revised fact sheet; minutes; press release</td></tr>
+    <tr><td>Retail commitment</td><td class="current">Mentioned as included (already correct)</td><td class="current">6,000 sq ft committed</td><td>Revised fact sheet; press release; minutes &sect;4</td></tr>
+  </table>
+  <p>The draft's unit count, affordability, and height figures are the <strong>February (original, superseded) proposal</strong> &mdash; parking and the retail mention are already correct, copied from a more recent source. This is deliberate: it mirrors a real failure mode (partially-grounded research), not a uniformly wrong draft. Learners need to check claim-by-claim, not accept or reject the whole piece.</p>
+  <p><strong>The sharpest catch needs no cross-referencing at all:</strong> the draft states "80 units" in paragraph two, then quotes Ron Kapoor saying "sixty-four units" in paragraph five &mdash; the draft contradicts itself. A careful read alone surfaces this before anyone opens a fact sheet.</p>
+
+  <div class="shot-row">
+    <div class="shot-card bad">
+      <img src="screenshots/04_draft_article.png" alt="Theo's draft article, as given to learners: reports 80 units and 8 affordable, six stories, but later quotes a resident saying sixty-four units.">
+      <p class="shot-label">The draft, as given to learners &mdash; self-contradicting</p>
+    </div>
+    <div class="shot-card good">
+      <img src="screenshots/01_revised_fact_sheet.png" alt="The revised, current fact sheet: 64 units, 16 affordable units (25%), 4 stories, 40 parking spaces, 6,000 sq ft retail committed, explicitly marked as superseding the February 9, 2026 submission.">
+      <p class="shot-label">The current record &mdash; explicitly marked as superseding Feb 9</p>
+    </div>
+  </div>
+
+  <h3>Beat Three &mdash; summary diagnostics</h3>
+  <div class="callout">
+    <p><strong>"Why did Larkspur revise the proposal, and what changed?"</strong> Strong answer (synthesized from the press release + minutes, not verbatim anywhere): fewer total units, roughly double the affordable share, a shorter building, and a new retail commitment, in direct response to concerns raised at the February 25 and April 8 community meetings. Weak answer: restates the numbers from Beat Two without the "why" &mdash; the community-feedback causation is the part that requires synthesis.</p>
+  </div>
+  <div class="callout">
+    <p><strong>"Summarize the community reaction at the hearing."</strong> Strong answer: mixed-to-positive &mdash; welcomed the added affordability and reduced scale, but parking remained a recurring concern, and several residents wanted the retail commitment written into the final agreement. Weak answer: only repeats the two named quotes (Odom, Kapoor) and misses that "four additional residents" also spoke with broadly similar sentiment &mdash; a sign the pass read the quotes but not the full public-comment paragraph.</p>
+  </div>
+  <p>Verification technique to reinforce: trace each clause to some passage (paraphrase is fine, invention is not); flag anything added that isn't traceable to any document; re-ask with different phrasing as a triangulation check.</p>
+
+  <h2>Run sheet</h2>
+  <p class="callout" style="font-style:italic;">Throughline to keep visible throughout: &ldquo;AI search doesn&rsquo;t remove the work of finding things out &mdash; it relocates it. Your job stops being &lsquo;search for the answer&rsquo; and becomes &lsquo;verify what it found, and notice what it couldn&rsquo;t have found.&rsquo;&rdquo;</p>
+  <table class="runsheet">
+    <tr><th>Time</th><th>Section</th><th>What happens</th></tr>
+    <tr><td class="time">10 min</td><td>Setup</td><td>Read Dana's assignment aloud. Land why this module is about verification, not search &mdash; read the throughline. Before anyone opens an AI tool: what would you personally check before putting your name on this story?</td></tr>
+    <tr><td class="time">10 min</td><td>Beat One &mdash; ask ungrounded</td><td>Learners ask an AI assistant about the case with no documents attached and note what comes back. Don't let anyone skip ahead to grounding yet.</td></tr>
+    <tr><td class="time">15 min</td><td>Beat One &mdash; ground &amp; compare</td><td>Attach or paste the case file, ask the identical question, compare answers. Debrief: name explicitly why the fictional setting guarantees the contrast.</td></tr>
+    <tr><td class="time">15 min</td><td>Beat Two &mdash; extract three facts</td><td>Pull the vote quote, the affordable-unit count, and the chart's total-unit figure, using the quote-then-interpret technique. Circulate for tool troubleshooting only.</td></tr>
+    <tr><td class="time">15 min</td><td>Beat Two &mdash; check the draft</td><td>The core diagnostic beat &mdash; find the stale figures claim-by-claim. Don't confirm or deny when asked "is this the error?"; ask how they'd check. Debrief with the fact-check table above.</td></tr>
+    <tr><td class="time">20 min</td><td>Beat Three &mdash; summarize &amp; verify</td><td>Ask both synthesis questions, apply trace-and-flag verification, try re-phrasing as triangulation. Debrief with the strong-vs-weak notes above.</td></tr>
+    <tr><td class="time">5 min</td><td>Naming the pattern</td><td>Land the reframe (checking is the skill) and structural blindness explicitly &mdash; don't let this get cut for time.</td></tr>
+    <tr><td class="time">10 min</td><td>Bring it home &amp; wrap</td><td>Think-pair-share on learners' own AI-search habits, then the three-beat cheat sheet to take with them.</td></tr>
+  </table>
+  <p class="footnote" style="margin-top:-0.5rem;">~100 minutes total. Beat Two is the longest single beat (30 min) &mdash; it's carrying both the extraction technique and the core diagnostic catch; don't compress it to protect Beat Three.</p>
+
+  <h2>Document notes</h2>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">HTML</span>00_original_fact_sheet.html</p>
+    <ul><li><span class="flag stale">SUPERSEDED</span> February 9, 2026 submission. 80 units, 8 affordable (10%), 6 stories, 48 parking, no retail commitment. This is where the draft's stale numbers come from &mdash; correct at the time, wrong now.</li></ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">HTML</span>01_revised_fact_sheet.html</p>
+    <ul><li><span class="flag correct">CURRENT</span> June 29, 2026 submission, explicitly labeled as superseding the February version. 64 units, 16 affordable (25%), 4 stories, 40 parking, 6,000 sq ft retail. This is the record to check the draft against.</li></ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">HTML</span>02_hearing_minutes.html</p>
+    <ul><li><span class="flag correct">CURRENT</span> July 21, 2026 zoning committee hearing. Verbatim quotes (Voss, Odom, Kapoor), 4&ndash;1 vote result, and the confirmation that the retail commitment will be binding &mdash; useful for both Beat Two (exact quote) and Beat Three (community reaction synthesis).</li></ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">HTML</span>03_press_release.html</p>
+    <ul><li><span class="flag correct">CURRENT</span> Larkspur's June 29, 2026 release. Best single source for the "why it changed" synthesis question &mdash; states the community-feedback causation directly.</li></ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">PNG</span>05_proposal_comparison_chart.png</p>
+    <ul><li><span class="flag correct">CURRENT</span> Original-vs-revised bar chart, total and affordable units. The image-extraction target for Beat Two &mdash; deliberately not duplicated in the plain-text bundle.</li></ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">HTML</span>04_draft_article.html</p>
+    <ul><li><span class="flag trap">THE THING BEING CHECKED</span> Theo's draft. Stale on units/affordability/height, correct on parking/retail, and self-contradicting on the unit count via the Kapoor quote. See the fact-check table above.</li></ul>
+  </div>
+
+  <h2>Facilitator judgment calls</h2>
+  <ul class="plain">
+    <li><strong>If a group's AI tool won't accept file uploads.</strong> Have them paste <code>06_all_documents_plain_text.md</code> directly into the chat instead &mdash; it covers every document except the chart image. For the image-extraction step, they can describe the chart's axis labels and bar heights to the assistant themselves, which is itself a useful fallback worth naming out loud.</li>
+    <li><strong>If a group catches the self-contradiction and stops there.</strong> That's a real catch, but it's only one of three stale figures. Nudge: "good &mdash; now check the rest of the draft against the fact sheet, not just against itself."</li>
+    <li><strong>How much to hint during Beat Two.</strong> If a group is stuck past the 10-minute mark, the one fair nudge is "compare the draft's numbers to the most recent fact sheet, not the first one you find." Don't say more than that unprompted.</li>
+    <li><strong>Grading Beat Three.</strong> There's no single correct sentence &mdash; judge by whether the learner can defend each clause against a source, not by wording match to the model answer above.</li>
+    <li><strong>Whether to share your own Quick Start answers.</strong> Keep them in your back pocket for a group that's genuinely stuck, not on the projector by default &mdash; showing them early removes the diagnostic work Beats Two and Three are for.</li>
+  </ul>
+
+  <p class="footer-note">Chicago Tech Circle &middot; Module 4 companion materials. This manual is for facilitator preparation &mdash; the answer key above is meant to inform your circulating and debriefing, not to be read aloud before learners have tried finding it themselves.</p>
+
+</main>
+</body>
+</html>
