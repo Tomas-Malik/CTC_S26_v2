@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 Facilitator Manual · Search &amp; Verify · Chicago Tech Circle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --magenta:#a5228e; --magenta-dark:#7c1c6b; --navy:#001e62; --navy-tint:#e9edf6;
+    --amber:#9a6400; --amber-tint:rgba(154,100,0,0.1);
+    --ink:#201a1e; --ink-muted:#6b6270; --paper:#fbf8fa; --card-bg:#ffffff; --border:#ece6ea;
+    --warn-bg:#fdf0f5; --warn-border:#f3c9de; --ok-bg:#eef6f0; --ok-border:#c9e3ce;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Inter",sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;}
+  main{max-width:860px;margin:0 auto;padding:3rem 1.5rem 5rem;}
+  .eyebrow{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--magenta);margin:0 0 0.5rem;}
+  h1{font-family:"Space Grotesk",sans-serif;font-size:2.1rem;font-weight:700;color:var(--navy);margin:0 0 0.5rem;}
+  .subtitle{color:var(--ink-muted);font-size:1.05rem;margin:0 0 2rem;}
+  .tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+  .tag{background:var(--navy-tint);color:var(--navy);font-size:0.8rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:20px;}
+  h2{font-family:"Space Grotesk",sans-serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin:2.75rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+  h2:first-of-type{border-top:none;padding-top:0;}
+  h3{font-family:"Space Grotesk",sans-serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin:1.75rem 0 0.5rem;}
+  p{margin:0 0 1rem;}
+  .callout{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin:1.25rem 0;}
+  .callout p:last-child{margin-bottom:0;}
+  .callout.caution{background:var(--warn-bg);border-color:var(--warn-border);}
+  ol.prep, ul.plain{padding-left:1.3rem;margin:0 0 1rem;}
+  ol.prep li, ul.plain li{margin-bottom:0.6rem;}
+  .file-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;}
+  .file-name{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 0.6rem;}
+  .file-name .ext{display:inline-block;background:var(--navy-tint);color:var(--navy);font-size:0.7rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:6px;margin-right:0.5rem;vertical-align:middle;}
+  .file-card ul{margin:0.5rem 0 0;padding-left:1.2rem;}
+  .file-card li{margin-bottom:0.4rem;}
+  .flag{display:inline-block;font-size:0.72rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:6px;margin-right:0.4rem;}
+  .flag.correct{background:var(--ok-bg);color:#1d6b34;border:1px solid var(--ok-border);}
+  .flag.trap{background:var(--warn-bg);color:#9c2159;border:1px solid var(--warn-border);}
+  .flag.stale{background:#fdeceb;color:#a3312c;border:1px solid #f3c2bd;}
+  code{background:var(--navy-tint);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.9em;}
+  .materials-map{display:grid;grid-template-columns:1fr 2fr;gap:0.4rem 1.25rem;margin:1rem 0 1.5rem;font-size:0.92rem;}
+  .materials-map dt{font-family:"Space Grotesk",sans-serif;font-weight:700;color:var(--navy);}
+  .materials-map dd{margin:0 0 0.75rem;color:var(--ink-muted);}
+  table.runsheet{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.9rem;}
+  table.runsheet th{text-align:left;font-family:"Space Grotesk",sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-muted);border-bottom:2px solid var(--border);padding:0.5rem 0.75rem 0.5rem 0;}
+  table.runsheet td{border-bottom:1px solid var(--border);padding:0.65rem 0.75rem 0.65rem 0;vertical-align:top;}
+  table.runsheet td.time{white-space:nowrap;font-weight:600;color:var(--navy);}
+  table.factcheck{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.88rem;}
+  table.factcheck th{text-align:left;font-family:"Space Grotesk",sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.03em;color:var(--ink-muted);border-bottom:2px solid var(--border);padding:0.5rem 0.6rem 0.5rem 0;}
+  table.factcheck td{border-bottom:1px solid var(--border);padding:0.6rem 0.6rem 0.6rem 0;vertical-align:top;}
+  table.factcheck td.stale{color:#a3312c;font-weight:600;}
+  table.factcheck td.current{color:#1d6b34;font-weight:600;}
+  .footer-note{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);color:var(--ink-muted);font-size:0.85rem;}
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Facilitator Manual &middot; Not for learner distribution</p>
+  <h1>Module 4: Search &amp; Verify</h1>
+  <p class="subtitle">A Level 1 module on AI search and document grounding, built around a real UIC document. Everything you need before you teach this, including the verified answer key for all three beats.</p>
+  <div class="tags">
+    <span class="tag">Level 1</span>
+    <span class="tag">~100 minutes</span>
+    <span class="tag">No prerequisite</span>
+  </div>
+
+  <div class="callout caution">
+    <p><strong>Read this before anything else.</strong> This version grounds learners in a real, currently-in-effect UIC document &mdash; the CS Department's Graduate Program Requirements &mdash; not a fictional case file. Treat this module as a literacy exercise, not a substitute for official advising. If a real learner has a real question about their real degree requirements, point them to their actual advisor or <code>cs-grad@uic.edu</code>, and always re-verify any number against the live PDF before repeating it &mdash; departments revise these documents, and everything below is a snapshot from August 2026. An earlier, fully fictional version of this module (the "Elston Heights" fact-checking scenario) is archived, not deleted &mdash; see "How the materials fit together" below if you'd rather teach that one instead.</p>
+  </div>
+
+  <h2>Overview</h2>
+  <p>Modules 1&ndash;3 taught judgment when AI <em>produces</em> something &mdash; a report, a summary, an analysis from data. Module 4 turns that same judgment toward AI when it's used to <em>find</em> something. Learners help a friend, Priya, who's applying to UIC's CS PhD program and keeps getting inconsistent answers about the requirements &mdash; using an AI assistant and the actual, current UIC Graduate Program Requirements PDF, plus one table from the official UIC Academic Catalog.</p>
+  <p>This is Level 1 with no prerequisite &mdash; it stands alongside Modules 1 and 2, not after Module 3. Priya is a lightweight, explicitly fictional stand-in for "the person asking the question" &mdash; she carries no invented facts of her own. Every number, deadline, and rule used anywhere in this module's materials is real and traces back to <code>SOURCE_FACTS.md</code> in the build notes, which cites the exact section or table it came from.</p>
+
+  <h3>The three beats</h3>
+  <div class="file-card">
+    <p class="file-name">Beat One &mdash; Ground it</p>
+    <p>Learners ask an AI assistant about UIC's PhD credit-hour and qualifier-exam requirements with no document attached, then again after grounding it in the real 2025 PDF. Unlike the archived fictional version, there's no ironclad guarantee the ungrounded pass will be wrong &mdash; the honest claim here is that a narrow, versioned department policy document isn't reliably covered by general training data, so the assistant will hedge, generalize, or answer without a way for the learner to verify it. Any of those outcomes makes the same point; don't oversell a guaranteed dramatic failure.</p>
+  </div>
+  <div class="file-card">
+    <p class="file-name">Beat Two &mdash; Extract it, check it</p>
+    <p>Learners pull exact facts from running text (a committee-composition rule) and a table (English proficiency test scores, which include a genuine, dated scale change), then use that skill to check a realistic claim: whether a direct-from-bachelor's coursework-hour figure (32) also applies to a student entering with a prior master's (it doesn't &mdash; that student needs 24). Nothing here is a planted error attributed to any real person &mdash; it's two real, genuinely similar numbers from the same document that are easy to swap.</p>
+  </div>
+  <div class="file-card">
+    <p class="file-name">Beat Three &mdash; Summarize it, verify it</p>
+    <p>Learners ask for a full admission-to-defense timeline &mdash; a synthesis question with no single verbatim answer &mdash; and learn a different verification technique: tracing each claim to the section it should come from and flagging anything unsupported, since there's no one sentence to check a summary against.</p>
+  </div>
+
+  <h3>The reframe to land</h3>
+  <div class="file-card">
+    <p class="file-name">1. Searching got easy. Checking is the actual skill.</p>
+    <p>Using AI search well is primarily the work of verifying what it surfaces, not the work of searching itself. Say this explicitly near the end &mdash; it's the module's thesis, and it's easy for a room to leave with "grounding" as the takeaway instead, which is only Beat One.</p>
+  </div>
+  <div class="file-card">
+    <p class="file-name">2. Structural blindness is the highest-stakes idea in the room</p>
+    <p>Distinct from any single wrong answer: over-relying on AI search trains people to stop looking anywhere it can't reach &mdash; the department office, an actual advisor, anything too recent or too niche to be indexed. You stop knowing what you don't know, because the tool never shows you the shape of its own blind spot. This is the one idea worth protecting time for even if the room is running long.</p>
+  </div>
+
+  <h2>How the materials fit together</h2>
+  <dl class="materials-map">
+    <dt>Slide deck</dt>
+    <dd><code>Module4_Search_And_Verify.pptx</code> &mdash; what you present. Frames the scenario and all three beats. It does not contain step-by-step instructions &mdash; it points learners to the lab guide for that.</dd>
+    <dt>Lab guide</dt>
+    <dd><code>Module4_Lab_Guide.html</code> &mdash; the learner-facing steps for all three beats, with links to the two real source documents. Deliberately doesn't reveal the exact answer key below &mdash; don't paraphrase it into the lab guide live.</dd>
+    <dt>This manual</dt>
+    <dd>Prep, run sheet, document notes, and the verified answer key for all three beats.</dd>
+  </dl>
+  <p style="font-size:0.85rem;color:var(--ink-muted);">The archived fictional version of Module 4 (Elston Heights &mdash; a fact-checking scenario with its own deck, lab guide, facilitator manual, and starter kit) lives at <a href="archive/elston-heights-fictional-scenario/">archive/elston-heights-fictional-scenario/</a>. It was not deleted when this version was built &mdash; both are complete, teachable modules; this one just uses a real document instead of an invented case file. Earlier planning notes from before either version existed are one level further back, at <a href="archive/Module4_AI_Search_Concept.html">archive/Module4_AI_Search_Concept.html</a>.</p>
+
+  <h2>Preparation</h2>
+  <ol class="prep">
+    <li>Read this manual's <strong>"The verified answer key"</strong> section in full before you teach this &mdash; it's the fastest way to recognize a correct catch versus a lucky-looking one, especially for Beat Three's summaries.</li>
+    <li>Actually do all three beats yourself with a real AI assistant before the session &mdash; see the Quick Start below.</li>
+    <li>Skim the deck's speaker notes for timing and beat-by-beat framing language.</li>
+    <li>Confirm learners have an AI assistant that can accept a file upload or a long paste &mdash; that's the entire technical bar for this module. Nobody needs to run code.</li>
+    <li>Keep your own tested answers from the Quick Start on hand to reference if a group stalls &mdash; don't share them up front.</li>
+  </ol>
+
+  <h3>Quick start &mdash; do all three beats yourself first</h3>
+  <ol class="prep">
+    <li>Ask a fresh AI chat (no documents attached): "How many total credit hours does a UIC Computer Science PhD require, and by when do I need to pass my qualifying exam?" Note whether it hedges, generalizes, or answers with unverifiable confidence.</li>
+    <li>Download the real PDF from <a href="https://www.cs.uic.edu/~grad/2025_Graduate_Program_Requirements.pdf" target="_blank" rel="noopener">cs.uic.edu/~grad/2025_Graduate_Program_Requirements.pdf</a>, attach it, and ask the identical question. Confirm it now answers 108 total hours with the correct qualifier deadline and can quote its source.</li>
+    <li>Ask for the exact Preliminary Exam committee composition, and separately, the TOEFL table from the <a href="https://catalog.uic.edu/gcat/colleges-schools/engineering/cs/phd/" target="_blank" rel="noopener">UIC Academic Catalog PhD page</a>. Confirm both match "The verified answer key" below.</li>
+    <li>Check the 32-vs-24-hour claim yourself before looking at the answer key &mdash; this is the fastest way to calibrate how much of a nudge learners will actually need.</li>
+    <li>Ask the Beat Three synthesis question and read your own answer against the diagnostic notes below.</li>
+  </ol>
+
+  <h2>The verified answer key</h2>
+  <p>Every answer below is directly traceable to a specific section of the real 2025 PDF or the real catalog page &mdash; not a judgment call. Full citations are in <code>SOURCE_FACTS.md</code> in the build notes.</p>
+
+  <h3>Beat One &mdash; what to expect</h3>
+  <div class="callout">
+    <p><strong>Ungrounded prompt:</strong> "How many total credit hours does a UIC Computer Science PhD require, and by when do I need to pass my qualifying exam?"</p>
+    <p>Likely outcomes: a hedge ("this varies by university, check with the department"), a generic non-UIC-specific answer, or a confident guess the learner has no way to verify. All three prove the point &mdash; don't promise the room a guaranteed wrong number. <strong>Grounded</strong>, the same question should return: 108 total semester hours beyond the bachelor's; 24 coursework hours (16 at the CS 500-level) plus 48 hours of CS 599 with a prior master's, or 32 coursework hours (16 at the CS 500-level) plus 72 hours of CS 599 direct from a bachelor's; qualifying exam due before the end of the 4th semester &mdash; with the assistant able to quote or point to the exact sentences.</p>
+  </div>
+
+  <h3>Beat Two &mdash; the extraction and mix-up table</h3>
+  <table class="factcheck">
+    <tr><th>Question</th><th>A wrong-ish answer looks like</th><th>Verified answer</th><th>Where to verify</th></tr>
+    <tr><td>Preliminary Exam committee</td><td class="stale">"A faculty committee reviews it" (vague, or borrows the Final Defense's extra outside-member rule)</td><td class="current">At least 5 members; at least 3 UIC Graduate Faculty with full membership; 2 of those tenured</td><td>2025 PDF, &ldquo;PhD Preliminary Examination&rdquo; section</td></tr>
+    <tr><td>Minimum TOEFL iBT score</td><td class="stale">One number, without checking the test date</td><td class="current">80 overall if tested before Jan 21, 2026 (new scale: 4.5 overall on/after that date)</td><td>UIC Academic Catalog, PhD page, English proficiency table</td></tr>
+    <tr><td>&ldquo;32 hours of coursework, with a prior master's&rdquo;</td><td class="stale">Accepted as stated</td><td class="current">Not quite &mdash; 32 hours applies direct-from-bachelor's; with a prior master's it's 24 hours</td><td>2025 PDF, &ldquo;Doctor of Philosophy Degree Requirements&rdquo; section</td></tr>
+  </table>
+  <p>None of this is a planted error attributed to a real person &mdash; the TOEFL scale change is a real, dated (Jan 21, 2026) catalog update, and the 24-vs-32 mix-up is two real numbers from the same paragraph that differ only by admission pathway. Frame Beat Two to learners as "this is what it actually feels like to need an exact answer from a long real document," not "catch the planted mistake."</p>
+
+  <h3>Beat Three &mdash; summary diagnostics</h3>
+  <div class="callout">
+    <p><strong>"Summarize everything a student entering with a master's degree needs to accomplish, in order, from admission through final defense, with roughly when each milestone should happen."</strong></p>
+    <p>Strong answer traces across at least four sections: (1) temporary advisor at admission, permanent advisor form due by end of 3rd semester; (2) qualifier exam &mdash; breadth by 3rd semester, written critique/presentation 3rd&ndash;4th semester, full pass by end of 4th semester; (3) colloquium (10 within first 2 years) and CS 590 (4 hours within first 2 years) running in parallel, not sequential; (4) preliminary exam expected by 6th semester, at least 1 year of residency, at least 1 year before final defense; (5) final defense at least 1 year after the preliminary exam, within 5 years of passing it.</p>
+    <p>Weak answer: gets the rough shape right but invents a specific unsupported detail (a fabricated exact date, a GPA tied to a milestone that isn't in the document), or &mdash; the most common tell &mdash; turns colloquium/CS 590 into a sequential step after the qualifier instead of something that runs in parallel throughout.</p>
+  </div>
+  <p>Verification technique to reinforce: trace each clause to some section (paraphrase is fine, invention is not); flag anything added that isn't traceable to any section; re-ask with different phrasing as a triangulation check.</p>
+
+  <h2>Run sheet</h2>
+  <p class="callout" style="font-style:italic;">Throughline to keep visible throughout: &ldquo;AI search doesn&rsquo;t remove the work of finding things out &mdash; it relocates it. Your job stops being &lsquo;search for the answer&rsquo; and becomes &lsquo;verify what it found, and notice what it couldn&rsquo;t have found.&rsquo;&rdquo;</p>
+  <table class="runsheet">
+    <tr><th>Time</th><th>Section</th><th>What happens</th></tr>
+    <tr><td class="time">10 min</td><td>Setup</td><td>Read Priya's text aloud. Land why this module is about verification, not search &mdash; read the throughline. Before anyone opens an AI tool: how would you normally try to answer a question like this, and how would you know if you got it right?</td></tr>
+    <tr><td class="time">10 min</td><td>Beat One &mdash; ask ungrounded</td><td>Learners ask an AI assistant about UIC's PhD requirements with no document attached and note what comes back. Don't let anyone skip ahead to grounding yet.</td></tr>
+    <tr><td class="time">15 min</td><td>Beat One &mdash; ground &amp; compare</td><td>Download the real PDF, attach or paste it, ask the identical question, compare answers. Debrief: name explicitly why a narrow real document isn't reliably covered by training data.</td></tr>
+    <tr><td class="time">15 min</td><td>Beat Two &mdash; extract two facts</td><td>Pull the Preliminary Exam committee rule and the TOEFL table, using the quote-then-interpret technique. Circulate for tool troubleshooting only.</td></tr>
+    <tr><td class="time">15 min</td><td>Beat Two &mdash; check the claim</td><td>The core diagnostic beat &mdash; check the 32-vs-24-hour claim. Don't confirm or deny when asked "is this the mix-up?"; ask how they'd check. Debrief with the table above.</td></tr>
+    <tr><td class="time">20 min</td><td>Beat Three &mdash; summarize &amp; verify</td><td>Ask the synthesis question, apply trace-and-flag verification, try re-phrasing as triangulation. Debrief with the strong-vs-weak notes above.</td></tr>
+    <tr><td class="time">5 min</td><td>Naming the pattern</td><td>Land the reframe (checking is the skill) and structural blindness explicitly &mdash; don't let this get cut for time.</td></tr>
+    <tr><td class="time">10 min</td><td>Bring it home &amp; wrap</td><td>Think-pair-share on learners' own AI-search habits, then the three-beat cheat sheet to take with them.</td></tr>
+  </table>
+  <p class="footnote" style="margin-top:-0.5rem;">~100 minutes total. Beat Two is the longest single beat (30 min) &mdash; it's carrying both the extraction technique and the core diagnostic catch; don't compress it to protect Beat Three.</p>
+
+  <h2>Document notes</h2>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">PDF</span>UIC CS Graduate Program Requirements (2025 edition)</p>
+    <ul>
+      <li><span class="flag correct">CURRENT</span> Live at <a href="https://www.cs.uic.edu/~grad/2025_Graduate_Program_Requirements.pdf" target="_blank" rel="noopener">cs.uic.edu/~grad/2025_Graduate_Program_Requirements.pdf</a>. Confirmed current as of August 2026 &mdash; no 2026 edition exists yet. The core grounding document for Beats One, Two (text), and Three.</li>
+      <li>Not bundled into this module's materials as a downloaded copy &mdash; learners and facilitators fetch it live from the official source. That's deliberate: it's more authentic (the real way you'd verify you have the current version), and it avoids redistributing a full copy of a document that isn't ours.</li>
+    </ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">WEB</span>UIC Academic Catalog &mdash; PhD in Computer Science (2026&ndash;2027)</p>
+    <ul>
+      <li><span class="flag correct">CURRENT</span> Live at <a href="https://catalog.uic.edu/gcat/colleges-schools/engineering/cs/phd/" target="_blank" rel="noopener">catalog.uic.edu/gcat/colleges-schools/engineering/cs/phd/</a>. Source of the one table used in this module (English proficiency test scores) &mdash; the only real table found across every UIC CS source checked. Verified twice via independent fetches.</li>
+    </ul>
+  </div>
+  <div class="file-card">
+    <p class="file-name"><span class="ext">NOTE</span>On the missing image modality</p>
+    <ul>
+      <li>The 2025 PDF, the <code>cs.uic.edu/graduate/phd/</code> program page, and the graduation guidelines page were all checked &mdash; none contain a chart, timeline graphic, or diagram. Rather than manufacture one, this version of Module 4 covers text and table extraction only in Beat Two. The archived Elston Heights version still has a full image-extraction activity (a comparison chart) if you want that modality covered &mdash; see "How the materials fit together" above.</li>
+    </ul>
+  </div>
+
+  <h2>Facilitator judgment calls</h2>
+  <ul class="plain">
+    <li><strong>If a group's AI tool won't accept PDF uploads.</strong> Have them copy the relevant section's text directly into the chat instead &mdash; the PDF is mostly plain prose, so this works fine for any single section.</li>
+    <li><strong>If a group treats the ungrounded Beat One answer as "close enough."</strong> Push on it: "would you have bet your friend's application timeline on that answer, without checking?" The point isn't that the AI is bad, it's that confidence and correctness aren't the same signal.</li>
+    <li><strong>How much to hint during Beat Two.</strong> If a group is stuck past the 10-minute mark on the coursework-hours claim, the one fair nudge is "check whether the document treats 'entering with a master's' and 'entering from a bachelor's' as the same case." Don't say more than that unprompted.</li>
+    <li><strong>Grading Beat Three.</strong> There's no single correct sentence &mdash; judge by whether the learner can defend each clause against a source, not by wording match to the model answer above.</li>
+    <li><strong>If someone asks whether this affects their actual UIC requirements.</strong> Be direct: this module is a literacy exercise using a real document, not advising. Point them to their real advisor or <code>cs-grad@uic.edu</code> for anything that actually matters to their degree.</li>
+    <li><strong>Whether to share your own Quick Start answers.</strong> Keep them in your back pocket for a group that's genuinely stuck, not on the projector by default &mdash; showing them early removes the diagnostic work Beats Two and Three are for.</li>
+  </ul>
+
+  <p class="footer-note">Chicago Tech Circle &middot; Module 4 companion materials. This manual is for facilitator preparation &mdash; the answer key above is meant to inform your circulating and debriefing, not to be read aloud before learners have tried finding it themselves.</p>
+
+</main>
+</body>
+</html>
